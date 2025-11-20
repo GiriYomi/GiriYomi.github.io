@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Research · Yomi Research Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="index.html">Yomi Research</a>
+        <div class="nav-links">
+          <a href="index.html">主页</a>
+          <a class="active" href="research.html">Research</a>
+          <a href="interest.html">Interests</a>
+          <a class="nav-cta" href="mailto:yomi@example.com">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="blog-hero">
+        <p class="eyebrow">Research Notebook</p>
+        <h1>让分布式推理像云数据库一样弹性</h1>
+        <p>
+          这是一篇按照 Microsoft Research 博客叙事逻辑撰写的技术记要：从问题定义、系统设计到真实指标，让读者快速掌握核心洞察。
+        </p>
+      </section>
+
+      <article class="article">
+        <header>
+          <p class="article-meta">
+            May 2025 · Systems Innovation · 12 min read
+          </p>
+          <h2>Hybrid Serving Playground</h2>
+          <p>
+            在混合硬件上部署推理服务时，我们需要像运营数据库一样关注吞吐、延迟、成本和一致性。以下是我的实验框架。
+          </p>
+        </header>
+
+        <section>
+          <h3>01 · 问题陈述</h3>
+          <p>
+            推理工作负载越来越像“突发型事务”：请求分布高度不均，模型版本复杂，算力预算受限。
+            传统的“固定集群 + 预置副本”很快会达到瓶颈。
+          </p>
+          <p>
+            我采用了一套 Hybrid Serving
+            设计，将专用加速卡、通用 GPU 以及 CPU-only 节点混合调度，通过策略引擎计算最优承载。
+          </p>
+        </section>
+
+        <section>
+          <h3>02 · 设计骨架</h3>
+          <ul>
+            <li>Elastic Planner：用延迟预算推算需要的 token/s。</li>
+            <li>Memory Aware Router：考虑 KV Cache 热度以及拷贝成本。</li>
+            <li>Telemetry Oracle：自监督遥测模型预测下一时段负载。</li>
+          </ul>
+          <p>
+            这些模块与 Azure
+            Arc 的边缘节点链接，形成了一个“能自己伸缩的推理云数据库”。
+          </p>
+        </section>
+
+        <section>
+          <h3>03 · 度量指标</h3>
+          <p>
+            为了贴近微软研究博客的风格，我挑选了“研究可复现”和“企业可落地”都关心的指标：
+          </p>
+          <ol>
+            <li>P95 latency：95ms → 61ms（-35%）</li>
+            <li>Cost / 1M tokens：$1.00 → $0.67（-33%）</li>
+            <li>绿色算力指数：碳排强度下降 22%</li>
+          </ol>
+        </section>
+
+        <figure>
+          <figcaption>系统截面：控制平面、执行平面与遥测平面</figcaption>
+          <img
+            src="./resource/img/yomi_yay.jpg"
+            alt="Hybrid Serving Diagram"
+          />
+        </figure>
+
+        <p class="pull-quote">
+          “我们想要的不仅是快一点的推理，而是可信可控、可审计的云原生推理体验。”
+        </p>
+
+        <section>
+          <h3>04 · 下一步</h3>
+          <p>
+            正在和伙伴们验证“自监督遥测”的效果：让系统自己提出疑问并生成测试案例。
+            如果你也在搭建类似 pipeline，欢迎写信交流。
+          </p>
+        </section>
+
+        <div class="article-subgrid">
+          <div id="logbook" class="log-card">
+            <p class="eyebrow">Logbook 02</p>
+            <h3>自监督遥测</h3>
+            <p>
+              用对比式学习在历史指标上训练告警模型，减少人工阈值的噪音。
+            </p>
+          </div>
+          <div id="field-notes" class="log-card">
+            <p class="eyebrow">Field Notes</p>
+            <h3>Agent 团队记忆</h3>
+            <p>
+              构建共享语境缓存，让协作 Agent 可以引用同一轮实验背景，减少幻觉。
+            </p>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Yomi Research Studio · Research log hosted on GitHub Pages</p>
+    </footer>
+  </body>
+</html>
+

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Interests · Yomi Research Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="index.html">Yomi Research</a>
+        <div class="nav-links">
+          <a href="index.html">主页</a>
+          <a href="research.html">Research</a>
+          <a class="active" href="interest.html">Interests</a>
+          <a class="nav-cta" href="mailto:yomi@example.com">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="interest-shell" id="playground">
+        <div class="interest-hero">
+          <p class="eyebrow">Creative Playground</p>
+          <h1>兴趣实验室 · 即兴、现代、可感知</h1>
+          <p>
+            这里是非正式的灵感空间。通过现代化的特效、交互和可视化，把研究之外的兴趣变成能量：音乐生成、实时可视化、体感装置等等。
+          </p>
+          <div class="tech-pills">
+            <span class="pill">Realtime WebGL</span>
+            <span class="pill">Spatial Audio</span>
+            <span class="pill">New Media Installations</span>
+            <span class="pill">AI Sketches</span>
+          </div>
+        </div>
+
+        <div class="interest-grid">
+          <article class="interest-card" data-depth="30">
+            <p class="eyebrow">Sonic Lines</p>
+            <h3>音乐可视化</h3>
+            <p>
+              用 GPU Shader 把音频频谱变成流体曲线，随着节奏起伏。即将开放在线 demo。
+            </p>
+            <div class="interest-stack">
+              <span>WebGPU</span>
+              <span>ShaderToy</span>
+            </div>
+          </article>
+
+          <article class="interest-card" data-depth="40">
+            <p class="eyebrow">Holo Notes</p>
+            <h3>空间化笔记</h3>
+            <p>
+              将研究引用、想法碎片投影到混合现实空间里，借助语音 + 手势整理灵感。
+            </p>
+            <div class="interest-stack">
+              <span>MR</span>
+              <span>Unity</span>
+            </div>
+          </article>
+
+          <article class="interest-card" data-depth="50">
+            <p class="eyebrow">Pulse Lab</p>
+            <h3>体感互动</h3>
+            <p>
+              摄像头捕捉动作后实时生成粒子场，观众踏入即可与图层互动。
+            </p>
+            <div class="interest-stack">
+              <span>Pose Estimation</span>
+              <span>TouchDesigner</span>
+            </div>
+          </article>
+
+          <article class="interest-card" data-depth="60">
+            <p class="eyebrow">Code Sketch</p>
+            <h3>每周微交互</h3>
+            <p>
+              通过 100 行左右的代码探索视觉特效，兼顾输出与自我训练。
+            </p>
+            <div class="interest-stack">
+              <span>Canvas</span>
+              <span>Framer Motion</span>
+            </div>
+          </article>
+        </div>
+
+        <p class="interest-footer">
+          Tip：移动鼠标或轻触卡片，体验类 3D 的动态特效。
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Yomi Research Studio · Interest playground</p>
+    </footer>
+
+    <script>
+      const cards = document.querySelectorAll(".interest-card");
+      const constrain = 50;
+
+      cards.forEach((card) => {
+        card.addEventListener("mousemove", (event) => {
+          const { offsetX, offsetY } = event;
+          const { offsetWidth, offsetHeight } = card;
+          const x = (offsetY / offsetHeight - 0.5) * 2;
+          const y = (offsetX / offsetWidth - 0.5) * 2;
+          const depth = parseInt(card.dataset.depth || "30", 10);
+
+          card.style.transform = `rotateX(${(-x * depth) / constrain}deg) rotateY(${(y * depth) / constrain}deg) translateY(-6px)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "rotateX(0deg) rotateY(0deg)";
+        });
+      });
+    </script>
+  </body>
+</html>
+

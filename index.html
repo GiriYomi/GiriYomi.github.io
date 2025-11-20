@@ -1,13 +1,129 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>我的 GitHub 网站</title>
-</head>
-<body>
-  <h1>你好，这是我的第一个 GitHub Pages 网站 🎉</h1>
-  <p>下一步我会用它来做 research blog / 项目主页。</p>
-  <h2>Hello World</h2>
-  <img src="./resource/img/yomi_yay.jpg" alt="yomi_yay">
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Yomi Research Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="index.html">Yomi Research</a>
+        <div class="nav-links">
+          <a class="active" href="index.html">主页</a>
+          <a href="research.html">Research</a>
+          <a href="interest.html">Interests</a>
+          <a
+            class="nav-cta"
+            href="mailto:yomi@example.com"
+            title="与我取得联系"
+            >Contact</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">人工智能 · 系统 · 创造力</p>
+          <h1>
+            构建下一代
+            <span class="highlight">Research Experience</span>
+          </h1>
+          <p>
+            我是一名专注于系统智能与人机协作的研究者，正在把 Microsoft
+            Research 博客那种清晰严谨的表达方式带到个人项目中。从概念验证到真实落地，欢迎一起探索。
+          </p>
+          <div class="button-group">
+            <a class="btn primary" href="research.html">最新研究记要</a>
+            <a class="btn ghost" href="interest.html">探索兴趣实验室</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="./resource/img/yomi_yay.jpg"
+            alt="Yomi Research Portrait"
+          />
+          <div class="hero-stat">
+            <p>2025 · 系统研究路线图</p>
+            <strong>Insight / Impact / Integrity</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-heading">
+          <p class="eyebrow">关于我</p>
+          <h2>Research + Engineering 的双螺旋</h2>
+          <p>
+            我相信最好的研究应该是“可运行的论文”。因此我在每一个项目中都坚持实现与验证：
+            让技术叙事既有洞察又有温度。
+          </p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Systems for AI</h3>
+            <p>
+              针对训练推理链路进行 co-design，关注弹性调度、存储感知以及绿色算力指标。
+            </p>
+          </article>
+          <article class="card">
+            <h3>Human + Copilot</h3>
+            <p>
+              将大型模型对知识工作者的增强落地在安全、合规和可解释框架下。
+            </p>
+          </article>
+          <article class="card">
+            <h3>Responsible Research</h3>
+            <p>
+              引入可验证评估与生命周期治理，让每一次迭代都可审计、可复现。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="spotlight">
+        <div class="section-heading">
+          <p class="eyebrow">Research Spotlight</p>
+          <h2>像 Microsoft Research Blog 那样讲故事</h2>
+        </div>
+        <div class="spotlight-grid">
+          <article class="longform-card">
+            <p class="article-meta">May 2025 · Systems · Preview</p>
+            <h3>
+              让分布式推理像云数据库一样弹性：一个 Hybrid Serving
+              试验场
+            </h3>
+            <p>
+              从调度器到服务质量指标，拆解我在边缘云协同中的观察与实践，配合真实指标与设计图，让读者感受到微软研究博客式的可信叙述。
+            </p>
+            <a class="text-link" href="research.html">阅读全文</a>
+          </article>
+          <ul class="spotlight-list">
+            <li>
+              <span>Logbook 02</span>
+              <a href="research.html#logbook">自监督遥测：让系统自己提出告警问题</a>
+            </li>
+            <li>
+              <span>Field Notes</span>
+              <a href="research.html#field-notes">协作 Agent 的“团队记忆”实验</a>
+            </li>
+            <li>
+              <span>Notebook</span>
+              <a href="interest.html#playground">兴趣实验室的实时可视化</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Yomi Research Studio · Inspired by Microsoft Research blogs</p>
+    </footer>
+  </body>
 </html>
