@@ -9,7 +9,7 @@
     <title>Research · Yomi Research Studio</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="light-page research-page">
     <header class="site-header">
       <nav class="nav">
         <a class="brand" href="index.html">Yomi Research</a>
@@ -17,110 +17,159 @@
           <a href="index.html">主页</a>
           <a class="active" href="research.html">Research</a>
           <a href="interest.html">Interests</a>
-          <a class="nav-cta" href="mailto:yomi@example.com">Contact</a>
+          <a href="contact.html">Contact</a>
         </div>
       </nav>
     </header>
 
     <main>
-      <section class="blog-hero">
-        <p class="eyebrow">Research Notebook</p>
-        <h1>让分布式推理像云数据库一样弹性</h1>
+      <section class="gallery-hero">
+        <p class="eyebrow">Research Gallery</p>
+        <h1>像 Microsoft Research 博客一样的砖块式叙事</h1>
         <p>
-          这是一篇按照 Microsoft Research 博客叙事逻辑撰写的技术记要：从问题定义、系统设计到真实指标，让读者快速掌握核心洞察。
+          每一块砖块都是一个系统实验：点击即可展开，看到结构、指标与下一步路线。
         </p>
       </section>
 
-      <article class="article">
-        <header>
-          <p class="article-meta">
-            May 2025 · Systems Innovation · 12 min read
-          </p>
-          <h2>Hybrid Serving Playground</h2>
-          <p>
-            在混合硬件上部署推理服务时，我们需要像运营数据库一样关注吞吐、延迟、成本和一致性。以下是我的实验框架。
-          </p>
-        </header>
-
-        <section>
-          <h3>01 · 问题陈述</h3>
-          <p>
-            推理工作负载越来越像“突发型事务”：请求分布高度不均，模型版本复杂，算力预算受限。
-            传统的“固定集群 + 预置副本”很快会达到瓶颈。
-          </p>
-          <p>
-            我采用了一套 Hybrid Serving
-            设计，将专用加速卡、通用 GPU 以及 CPU-only 节点混合调度，通过策略引擎计算最优承载。
-          </p>
-        </section>
-
-        <section>
-          <h3>02 · 设计骨架</h3>
-          <ul>
-            <li>Elastic Planner：用延迟预算推算需要的 token/s。</li>
-            <li>Memory Aware Router：考虑 KV Cache 热度以及拷贝成本。</li>
-            <li>Telemetry Oracle：自监督遥测模型预测下一时段负载。</li>
-          </ul>
-          <p>
-            这些模块与 Azure
-            Arc 的边缘节点链接，形成了一个“能自己伸缩的推理云数据库”。
-          </p>
-        </section>
-
-        <section>
-          <h3>03 · 度量指标</h3>
-          <p>
-            为了贴近微软研究博客的风格，我挑选了“研究可复现”和“企业可落地”都关心的指标：
-          </p>
-          <ol>
-            <li>P95 latency：95ms → 61ms（-35%）</li>
-            <li>Cost / 1M tokens：$1.00 → $0.67（-33%）</li>
-            <li>绿色算力指数：碳排强度下降 22%</li>
-          </ol>
-        </section>
-
-        <figure>
-          <figcaption>系统截面：控制平面、执行平面与遥测平面</figcaption>
-          <img
-            src="./resource/img/yomi_yay.jpg"
-            alt="Hybrid Serving Diagram"
-          />
-        </figure>
-
-        <p class="pull-quote">
-          “我们想要的不仅是快一点的推理，而是可信可控、可审计的云原生推理体验。”
-        </p>
-
-        <section>
-          <h3>04 · 下一步</h3>
-          <p>
-            正在和伙伴们验证“自监督遥测”的效果：让系统自己提出疑问并生成测试案例。
-            如果你也在搭建类似 pipeline，欢迎写信交流。
-          </p>
-        </section>
-
-        <div class="article-subgrid">
-          <div id="logbook" class="log-card">
-            <p class="eyebrow">Logbook 02</p>
-            <h3>自监督遥测</h3>
-            <p>
-              用对比式学习在历史指标上训练告警模型，减少人工阈值的噪音。
-            </p>
+      <section
+        class="research-gallery"
+        id="research-gallery"
+        aria-label="Research gallery"
+      >
+        <article
+          id="hybrid"
+          class="research-card"
+          data-title="Hybrid Serving Playground"
+          data-meta="Systems · May 2025"
+          data-summary="混合硬件与自监督遥测联动，让推理像云数据库一样弹性。"
+          data-detail="围绕 Elastic Planner、Memory Aware Router 与 Telemetry Oracle 三部分打造的试验场，P95 延迟下降 35%，成本下降 33%。下一步关注多租户隔离与更细粒度的可观测性。"
+          data-detail-page="research-detail-hybrid.html"
+          data-img="./resource/img/logo.jpg"
+        >
+          <img src="./resource/img/logo.jpg" alt="Hybrid Serving" />
+          <div class="card-body">
+            <p class="card-tag">Systems</p>
+            <h3>Hybrid Serving Playground</h3>
+            <p>让推理具备弹性的数据库体验</p>
+            <div class="card-actions">
+              <button class="text-link">展开</button>
+              <a
+                class="text-link detail-link"
+                href="research-detail-hybrid.html"
+                >详细查看</a
+              >
+            </div>
           </div>
-          <div id="field-notes" class="log-card">
-            <p class="eyebrow">Field Notes</p>
-            <h3>Agent 团队记忆</h3>
-            <p>
-              构建共享语境缓存，让协作 Agent 可以引用同一轮实验背景，减少幻觉。
-            </p>
+        </article>
+
+        <article
+          id="logbook"
+          class="research-card"
+          data-title="Telemetry Oracle"
+          data-meta="Observability · Apr 2025"
+          data-summary="自监督遥测模型，自动提出告警与测试问题。"
+          data-detail="利用对比式学习与历史指标构建“告警提问器”，为系统提供可解释的异常上下文。结合 Azure Monitor 与自建评估板块，提升告警准确率 27%。"
+          data-detail-page="research-detail-telemetry.html"
+          data-img="./resource/img/logo.jpg"
+        >
+          <img src="./resource/img/logo.jpg" alt="Telemetry Oracle" />
+          <div class="card-body">
+            <p class="card-tag">Observability</p>
+            <h3>Telemetry Oracle</h3>
+            <p>自监督指标，让系统自己问问题</p>
+            <div class="card-actions">
+              <button class="text-link">展开</button>
+              <a
+                class="text-link detail-link"
+                href="research-detail-telemetry.html"
+                >详细查看</a
+              >
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+
+        <article
+          id="field-notes"
+          class="research-card"
+          data-title="Copilot Desk"
+          data-meta="Collaboration · Mar 2025"
+          data-summary="面向知识工作者的合规 Copilot 桌面。"
+          data-detail="通过角色化 Prompt、可审计日志与最小权限数据层，构建可信 Copilot 体验。实验覆盖法律、市场与工程团队，平均节省 18% 工作量。"
+          data-detail-page="research-detail-copilot.html"
+          data-img="./resource/img/logo.jpg"
+        >
+          <img src="./resource/img/logo.jpg" alt="Copilot Desk" />
+          <div class="card-body">
+            <p class="card-tag">Collaboration</p>
+            <h3>Copilot Desk</h3>
+            <p>安全、可解释的知识协作基座</p>
+            <div class="card-actions">
+              <button class="text-link">展开</button>
+              <a
+                class="text-link detail-link"
+                href="research-detail-copilot.html"
+                >详细查看</a
+              >
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="research-card"
+          data-title="Responsible Loop"
+          data-meta="Governance · Feb 2025"
+          data-summary="把研究生命周期做成可审计仪表盘。"
+          data-detail="Responsible Loop 将数据溯源、模型版本、评估与部署记录统一在一个可视化面板中，为每一次实验生成“运行报告”。目前正集成自动化红队。"
+          data-detail-page="research-detail-loop.html"
+          data-img="./resource/img/logo.jpg"
+        >
+          <img src="./resource/img/logo.jpg" alt="Responsible Loop" />
+          <div class="card-body">
+            <p class="card-tag">Governance</p>
+            <h3>Responsible Loop</h3>
+            <p>可运行的论文与治理闭环</p>
+            <div class="card-actions">
+              <button class="text-link">展开</button>
+              <a
+                class="text-link detail-link"
+                href="research-detail-loop.html"
+                >详细查看</a
+              >
+            </div>
+          </div>
+        </article>
+      </section>
     </main>
 
+    <div class="research-modal" id="research-modal" aria-hidden="true">
+      <div class="modal-overlay" data-close-modal></div>
+      <div class="modal-content">
+        <button class="modal-close" data-close-modal aria-label="关闭">
+          ×
+        </button>
+        <img src="./resource/img/logo.jpg" alt="Research cover" />
+        <div class="modal-copy">
+          <p class="article-meta modal-meta">Systems · 2025</p>
+          <h3 class="modal-title">标题</h3>
+          <p class="modal-summary">摘要</p>
+          <p class="modal-detail">详细描述</p>
+          <div class="modal-actions">
+            <a class="btn primary modal-contact" href="contact.html"
+              >联系合作</a
+            >
+            <a class="btn primary modal-detail-link" href="#" target="_blank"
+              >详细查看</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer class="site-footer">
-      <p>© 2025 Yomi Research Studio · Research log hosted on GitHub Pages</p>
+      <p>© 2025 Yomi Research Studio · Research Gallery</p>
     </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
 

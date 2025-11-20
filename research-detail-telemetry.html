@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Telemetry Oracle · Research Detail</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="light-page research-detail-page">
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="index.html">Yomi Research</a>
+        <div class="nav-links">
+          <a href="index.html">主页</a>
+          <a class="active" href="research.html">Research</a>
+          <a href="interest.html">Interests</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="detail-hero">
+        <p class="eyebrow">Case 02 · Observability</p>
+        <h1>Telemetry Oracle</h1>
+        <p>
+          通过自监督学习训练“指标提问器”，它会主动提示你：哪条曲线需要注意、应该生成什么样的测试脚本。
+        </p>
+      </section>
+
+      <section class="detail-body">
+        <article>
+          <h2>Intro</h2>
+          <p>
+            我们把遥测数据当成对话素材，让系统能对自身状态提出问题，减少人工设置的阈值。
+          </p>
+        </article>
+        <article>
+          <h2>Motivation</h2>
+          <p>
+            在多区域部署时，传统告警不是“太吵”就是“太迟”。需要一个会自我校准的观察者。
+          </p>
+        </article>
+        <article>
+          <h2>Method</h2>
+          <p>
+            利用对比学习构建 embedding，把历史指标片段映射到稳定空间，并训练一个轻量判断头输出“提问”。
+          </p>
+        </article>
+        <article>
+          <h2>Experiments</h2>
+          <p>
+            告警准确率提升 27%，平均确认时间降低 18%，还能自动建议 3 种测试脚本模版。
+          </p>
+        </article>
+        <article>
+          <h2>Conclusion</h2>
+          <p>
+            下一阶段将把提问输出对接 Copilot，让工程师直接在 IDE 里得到建议。
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Yomi Research Studio · Case 02</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

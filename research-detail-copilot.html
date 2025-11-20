@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Copilot Desk · Research Detail</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="light-page research-detail-page">
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="index.html">Yomi Research</a>
+        <div class="nav-links">
+          <a href="index.html">主页</a>
+          <a class="active" href="research.html">Research</a>
+          <a href="interest.html">Interests</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="doc-page">
+      <aside class="doc-sidebar">
+        <p class="eyebrow">Contents</p>
+        <a href="#intro">Intro</a>
+        <a href="#motivation">Motivation</a>
+        <a href="#method">Method</a>
+        <a href="#experiments">Experiments</a>
+        <a href="#conclusion">Conclusion</a>
+        <div class="doc-meta">
+          <p>Case 03 · Collaboration</p>
+          <p>Updated · May 2025</p>
+        </div>
+      </aside>
+
+      <section class="doc-content">
+        <article class="doc-hero">
+          <p class="eyebrow">Copilot Desk · Microsoft Research style log</p>
+          <h1>Operational Notebook</h1>
+          <p>
+            参考 GraphRAG 文档式布局，将企业级 Copilot 桌面的洞察拆解成清晰的章节，在一个页面里完成背景、方法和指标的交付。
+          </p>
+        </article>
+
+        <article id="intro" class="doc-section">
+          <h2>Intro</h2>
+          <p>
+            Copilot Desk 旨在把知识工作流“组件化”，让产品、法务、工程等角色调取同一套语境。借助 Role Modules
+            与 Context Spine，团队成员可以在一个可信站点上协作。
+          </p>
+        </article>
+
+        <article id="motivation" class="doc-section">
+          <h2>Motivation</h2>
+          <ul>
+            <li>很多 Copilot PoC 因权限、治理问题无法落地。</li>
+            <li>缺乏一致的审计标准，难以通过合规审查。</li>
+            <li>需要让不同团队共享上下文而不暴露敏感数据。</li>
+          </ul>
+        </article>
+
+        <article id="method" class="doc-section">
+          <h2>Method</h2>
+          <p>三层设计与 GraphRAG 过程类似，强调结构化组件：</p>
+          <ol>
+            <li>Prompt Template Registry：管理角色化指令。</li>
+            <li>Policy Gateway：基于最小权限的调用控制。</li>
+            <li>Evidence Ledger：自动生成可审计记录。</li>
+          </ol>
+        </article>
+
+        <article id="experiments" class="doc-section">
+          <h2>Experiments</h2>
+          <p>
+            在市场、法务、工程三类团队试点，平均节省 18%
+            周工作量；审计团队可以在 1 分钟内复盘任意请求。系统的延迟与成本保持在 SLO 内。
+          </p>
+        </article>
+
+        <article id="conclusion" class="doc-section">
+          <h2>Conclusion</h2>
+          <p>
+            下一步将 Evidence Ledger 与 Responsible Loop 打通，实现指标与合规闭环。该页面结构可复用于后续案例。
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Yomi Research Studio · Case 03</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

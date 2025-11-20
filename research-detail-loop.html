@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Responsible Loop · Research Detail</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="light-page research-detail-page">
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="index.html">Yomi Research</a>
+        <div class="nav-links">
+          <a href="index.html">主页</a>
+          <a class="active" href="research.html">Research</a>
+          <a href="interest.html">Interests</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="doc-page">
+      <aside class="doc-sidebar">
+        <p class="eyebrow">Contents</p>
+        <a href="#intro">Intro</a>
+        <a href="#motivation">Motivation</a>
+        <a href="#method">Method</a>
+        <a href="#experiments">Experiments</a>
+        <a href="#conclusion">Conclusion</a>
+        <div class="doc-meta">
+          <p>Case 04 · Governance</p>
+          <p>Updated · May 2025</p>
+        </div>
+      </aside>
+
+      <section class="doc-content">
+        <article class="doc-hero">
+          <p class="eyebrow">Responsible Loop · Governance Memo</p>
+          <h1>Lifecycle Brief</h1>
+          <p>
+            以 GraphRAG 文档风格呈现，将治理闭环拆解为可执行的步骤，让团队在一个页面内看懂背景、方法与实验结论。
+          </p>
+        </article>
+
+        <article id="intro" class="doc-section">
+          <h2>Intro</h2>
+          <p>
+            Responsible Loop 将数据溯源、模型版本、评估与部署记录汇总在一个交互面板中，让研究流程变成“可运行的论文”。
+          </p>
+        </article>
+
+        <article id="motivation" class="doc-section">
+          <h2>Motivation</h2>
+          <ul>
+            <li>客户审计需要分钟级证明“我们做过什么”。</li>
+            <li>团队希望在安全评审前自动生成运行报告。</li>
+            <li>与 Telemetry Oracle 联动，实现提问即治理。</li>
+          </ul>
+        </article>
+
+        <article id="method" class="doc-section">
+          <h2>Method</h2>
+          <p>结构对应 GraphRAG 的 Index → Query → Prompt Tuning：</p>
+          <ol>
+            <li>Event Sourcing：记录实验流水、数据血缘与模型版本。</li>
+            <li>Summary Script：自动生成可复用的报告（CI/CD 触发）。</li>
+            <li>Feedback Loop：把异常写回队列，驱动下一轮验证。</li>
+          </ol>
+        </article>
+
+        <article id="experiments" class="doc-section">
+          <h2>Experiments</h2>
+          <p>
+            7 个项目组试用后，审计准备时间从 2 天缩短到 4 小时，并提前发现 3
+            个潜在合规隐患；Loop 日志用于训练 Telemetry Oracle 的提问器。
+          </p>
+        </article>
+
+        <article id="conclusion" class="doc-section">
+          <h2>Conclusion</h2>
+          <p>
+            正在把 Loop 与 Copilot Desk、Telemetry Oracle 贯通，形成 GraphRAG
+            风格的结构化知识层，保障指标、洞察与合规闭环。
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Yomi Research Studio · Case 04</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

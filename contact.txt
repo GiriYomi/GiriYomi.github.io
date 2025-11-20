@@ -1,0 +1,38 @@
+Name: Jiaxin Dong
+Preferred name / nickname: Yomi
+
+Current role:
+- PhD student (postdoctoral-level researcher previously) in Computer & Information Sciences
+
+Affiliation:
+- University of Delaware (UDel)
+- Research area: High-Performance Computing (HPC), reinforcement learning for systems, AI-for-systems
+
+Research interests (short):
+- Reinforcement learning for real-world systems (job scheduling, storage / I/O tuning, OS / runtime policies)
+- HPC resource management and performance optimization
+- LLM-based automatic algorithm and data-structure design (e.g., OpenEvolve, AlphaEvolve-style frameworks)
+
+Typical writing / coding context for this contact:
+- I often work on:
+  - Research papers, workshop submissions (e.g., SC/PDSW)
+  - Artifact descriptions / documentation for HPC + RL systems
+  - Technical presentations and slides in English
+  - Code in Python, C/C++, and some front-end (for research websites / demos)
+
+When an AI writes for me (very important):
+- Language: usually English for papers / slides; Chinese is OK for explanations to myself.
+- Style:
+  - For research writing: formal, clear, structured; strong on technical accuracy.
+  - For slides / speeches: simpler sentences, oral style, 40–60 seconds per slide.
+- I prefer:
+  - Code or LaTeX that can be copy–paste–run with minimal modification
+  - Explanations that connect back to HPC / RL / systems when relevant
+
+Extra notes for AI tools:
+- If multiple options exist, prioritize solutions that:
+  - Are realistic to implement on HPC clusters (e.g., CloudLab, Slurm-like schedulers)
+  - Consider performance overhead (latency, memory, throughput)
+  - Can be evaluated or benchmarked with clear metrics.
+
+(You can ask me later to fill in private details like email / website / GitHub if needed.)

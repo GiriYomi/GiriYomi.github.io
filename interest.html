@@ -9,7 +9,7 @@
     <title>Interests · Yomi Research Studio</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="light-page interest-page">
     <header class="site-header">
       <nav class="nav">
         <a class="brand" href="index.html">Yomi Research</a>
@@ -17,7 +17,7 @@
           <a href="index.html">主页</a>
           <a href="research.html">Research</a>
           <a class="active" href="interest.html">Interests</a>
-          <a class="nav-cta" href="mailto:yomi@example.com">Contact</a>
+          <a href="contact.html">Contact</a>
         </div>
       </nav>
     </header>
@@ -25,6 +25,11 @@
     <main>
       <section class="interest-shell" id="playground">
         <div class="interest-hero">
+          <div class="interest-lights" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
           <p class="eyebrow">Creative Playground</p>
           <h1>兴趣实验室 · 即兴、现代、可感知</h1>
           <p>
@@ -98,26 +103,7 @@
       <p>© 2025 Yomi Research Studio · Interest playground</p>
     </footer>
 
-    <script>
-      const cards = document.querySelectorAll(".interest-card");
-      const constrain = 50;
-
-      cards.forEach((card) => {
-        card.addEventListener("mousemove", (event) => {
-          const { offsetX, offsetY } = event;
-          const { offsetWidth, offsetHeight } = card;
-          const x = (offsetY / offsetHeight - 0.5) * 2;
-          const y = (offsetX / offsetWidth - 0.5) * 2;
-          const depth = parseInt(card.dataset.depth || "30", 10);
-
-          card.style.transform = `rotateX(${(-x * depth) / constrain}deg) rotateY(${(y * depth) / constrain}deg) translateY(-6px)`;
-        });
-
-        card.addEventListener("mouseleave", () => {
-          card.style.transform = "rotateX(0deg) rotateY(0deg)";
-        });
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
 

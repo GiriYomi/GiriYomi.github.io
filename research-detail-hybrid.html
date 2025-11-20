@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Hybrid Serving · Research Detail</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="light-page research-detail-page">
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="index.html">Yomi Research</a>
+        <div class="nav-links">
+          <a href="index.html">主页</a>
+          <a class="active" href="research.html">Research</a>
+          <a href="interest.html">Interests</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="detail-hero">
+        <p class="eyebrow">Case 01 · Systems</p>
+        <h1>Hybrid Serving Playground</h1>
+        <p>
+          这篇 detail 页面完全仿照 Microsoft Research Blog：先讲故事和缘起，再展示方法、实验与结论。
+        </p>
+      </section>
+
+      <section class="detail-body">
+        <article>
+          <h2>Intro</h2>
+          <p>
+            推理像数据库一样需要弹性与一致性。这次的 Hybrid Serving
+            实验从“算力组合”切入，把专用加速卡与通用 GPU、CPU-only
+            节点以策略方式混搭。
+          </p>
+        </article>
+        <article>
+          <h2>Motivation</h2>
+          <p>
+            大模型调用风暴常常让固定集群崩溃。我们想要一套可以根据延迟预算自动扩缩的体系，并对能耗负责。
+          </p>
+        </article>
+        <article>
+          <h2>Method</h2>
+          <p>
+            Elastic Planner 估算 token/s，Memory Aware Router
+            根据热度调度 KV Cache，Telemetry Oracle
+            通过自监督信号预测下一个区间的负载。
+          </p>
+        </article>
+        <article>
+          <h2>Experiments</h2>
+          <p>
+            P95 延迟从 95ms 降到 61ms；1M tokens 成本下降 33%；碳排强度下降 22%。
+          </p>
+        </article>
+        <article>
+          <h2>Conclusion</h2>
+          <p>
+            下一步聚焦多租户隔离与更细粒度的 SLO。欢迎通过 contact 页签继续讨论。
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Yomi Research Studio · Case 01</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

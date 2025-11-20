@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Contact · Yomi Research Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="light-page contact-page">
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="index.html">Yomi Research</a>
+        <div class="nav-links">
+          <a href="index.html">主页</a>
+          <a href="research.html">Research</a>
+          <a href="interest.html">Interests</a>
+          <a class="active" href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="contact-hero">
+        <p class="eyebrow">Contact Switchboard</p>
+        <h1>通过 txt 数据读取得到的联系方式</h1>
+        <p>
+          静态站点同样可以“读文件”：这里直接从 <code>contact.txt</code>
+          拉取信息，方便版本管理与更新。欢迎通过下方渠道联系合作。
+        </p>
+        <a class="btn ghost" href="contact.txt" download>下载 contact.txt</a>
+      </section>
+
+      <section class="contact-panel">
+        <div class="contact-stream">
+          <p class="eyebrow">Profile Snapshot</p>
+          <div class="contact-block">
+            <h3>Yomi</h3>
+            <p class="muted">
+              PhD student · Computer & Information Sciences
+            </p>
+            <ul>
+              <li>Affiliation: University of Delaware (UDel)</li>
+              <li>
+                Research area: HPC · reinforcement learning for systems ·
+                AI-for-systems
+              </li>
+            </ul>
+          </div>
+
+          <div class="contact-block">
+            <h4>Research Interests</h4>
+            <ul>
+              <li>
+                RL for real-world systems：作业调度、存储/I/O 调优、OS/runtime 策略
+              </li>
+              <li>HPC 资源管理与性能优化</li>
+              <li>
+                LLM-based 自动算法与数据结构设计（OpenEvolve / AlphaEvolve-style）
+              </li>
+            </ul>
+          </div>
+
+          <div class="contact-block">
+            <h4>Typical Writing / Coding Context</h4>
+            <p>经常需要输出：</p>
+            <ul>
+              <li>Research papers & workshop submissions（SC / PDSW）</li>
+              <li>HPC + RL 系统的 artifact 文档</li>
+              <li>英语技术演示 / 幻灯片</li>
+              <li>Python, C/C++ 以及部分前端代码</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3>AI Collaboration Preferences</h3>
+          <div class="contact-block">
+            <h4>Language & Style</h4>
+            <ul>
+              <li>语言：英文为主；向自己解释时可用中文</li>
+              <li>研究写作：正式、清晰、结构化，强调技术准确性</li>
+              <li>Slides / speeches：口语化、句子短，40–60 秒/页</li>
+            </ul>
+          </div>
+          <div class="contact-block">
+            <h4>What I Prefer</h4>
+            <ul>
+              <li>可复制运行的代码 / LaTeX，少改动即可执行</li>
+              <li>解释需要回扣 HPC / RL / systems 语境</li>
+              <li>需要具体、可复现的指令，而非模糊建议</li>
+            </ul>
+          </div>
+          <div class="contact-block">
+            <h4>Extra Notes</h4>
+            <ul>
+              <li>方案应能在 CloudLab、Slurm 等 HPC 集群落地</li>
+              <li>关注性能开销（latency / memory / throughput）</li>
+              <li>给出可评估、可 benchmark 的指标</li>
+            </ul>
+            <p class="muted">
+              * 可按需再补充 email / website / GitHub，保持隐私分离。
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Yomi Research Studio · Contact channel</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
