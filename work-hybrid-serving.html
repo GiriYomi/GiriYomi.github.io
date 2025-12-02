@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hybrid Serving Atlas · YOMI Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #01040a;
+      --primary: #69f1ff;
+      --accent: #ff7af5;
+      --muted: rgba(255, 255, 255, 0.78);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Share Tech Mono", "Orbitron", system-ui, sans-serif;
+      background: radial-gradient(circle at 15% 0%, rgba(105, 241, 255, 0.14), transparent 60%),
+                  radial-gradient(circle at 75% 10%, rgba(255, 122, 245, 0.12), transparent 55%),
+                  var(--bg);
+      color: #f1fbff;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(105, 241, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(105, 241, 255, 0.08) 1px, transparent 1px);
+      background-size: 140px 140px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      padding: 1.2rem clamp(1.5rem, 4vw, 3rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(1, 4, 12, 0.82);
+      border-bottom: 1px solid rgba(105, 241, 255, 0.25);
+      backdrop-filter: blur(16px);
+      z-index: 5;
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: var(--primary);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(105, 241, 255, 0.35);
+    }
+
+    .back-link::before {
+      content: "◂";
+      color: var(--accent);
+    }
+
+    .meta-pill {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(105, 241, 255, 0.3);
+      color: var(--accent);
+    }
+
+    main {
+      padding: clamp(1.5rem, 4vw, 3.2rem);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      border-radius: 22px;
+      border: 1px solid rgba(105, 241, 255, 0.2);
+      background: rgba(0, 6, 16, 0.85);
+      padding: clamp(1.5rem, 3vw, 2.4rem);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(105, 241, 255, 0.3);
+      background: rgba(105, 241, 255, 0.12);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .hero h1 {
+      margin: 0.4rem 0;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .meta-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .meta-list li {
+      border: 1px solid rgba(105, 241, 255, 0.2);
+      border-radius: 12px;
+      padding: 0.65rem 0.9rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .detail-block {
+      border-radius: 18px;
+      border: 1px solid rgba(105, 241, 255, 0.2);
+      background: rgba(0, 4, 12, 0.82);
+      padding: 1.3rem;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .detail-block h2 {
+      margin: 0;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+
+    .detail-block p,
+    .detail-block li {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.92rem;
+    }
+
+    .detail-block ul {
+      padding-left: 1.1rem;
+      margin: 0;
+      display: grid;
+      gap: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="back-link" href="research.html">Return Gallery</a>
+    <div class="meta-pill">Systems Track</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="badge">Hybrid Serving Atlas</span>
+        <h1>Edge-Cloud 推理编排</h1>
+        <p>围绕 Copilot 推理热路径，构建一个像云数据库一样可调度、可治理的 Hybrid Serving 平台，支撑 edge-cloud 协同的 sub-50ms SLA。</p>
+        <ul class="meta-list">
+          <li>Duration · 2024 Q2 - 2025 Q1</li>
+          <li>Role · Research Engineer / Systems Designer</li>
+          <li>Stack · Rust Runtime · ONNX Runtime · Azure Arc</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>研究摘要</strong>：提出热路径意识（Hot-Path Awareness）与缓存分层（KV Cache Tiering）联合的调度策略，并通过自监督遥测构建可验证的服务品质模型。</p>
+        <p><strong>交付物</strong>：包含论文式技术文档、指标仪表板、以及 Terraform 自动化部署脚本。</p>
+      </div>
+    </section>
+
+    <section class="detail-grid">
+      <article class="detail-block">
+        <h2>研究动机 / Abstract</h2>
+        <p>随着 Copilot 使用场景向 offline/edge 延展，单一云端推理无法满足实时性与可靠性。Hybrid Serving Atlas 用“数据库式优化”类比推理编排，让每一次 LLM 调用都可解释、可治理。</p>
+        <ul>
+          <li>将推理请求视作 SQL Query，构建 Plan Cache 与 Cost Model。</li>
+          <li>结合边缘设备（ARM SoC）与云 GPU/CPU 的异构资源，支持弹性拓扑。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>方法论 / Methodology</h2>
+        <ul>
+          <li>Hot-Path Scheduler：对历史查询构建 KV-Cache 热度直方图，驱动优先级调度。</li>
+          <li>Tiered Cache Fabric：在 edge、regional cache、cloud 三层之间复制 Token 片段。</li>
+          <li>绿色算力策略：根据碳强度 API 动态迁移非关键任务到低碳 region。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>实验设计 / Experiment</h2>
+        <ul>
+          <li>基准：Mixtral-8x7B / Phi-3-mini，输入 2K tokens，批量 8。</li>
+          <li>对照组：纯云端 GPU 服务；实验组：Hybrid Serving。</li>
+          <li>指标：P95 延迟、缓存命中率、能耗/请求。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>结果与指标</h2>
+        <ul>
+          <li>P95 延迟从 132ms 降至 48ms；缓存命中率 71% → 93%。</li>
+          <li>能耗/请求下降 22%，原因是 ARM 侧预处理 + 云侧批量推理。</li>
+          <li>故障恢复时间（MTTR） < 90s，得益于多副本热切换。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>交付物 / Deliverables</h2>
+        <ul>
+          <li>Hybrid Serving Atlas 白皮书（35 页），包含证明与伪代码。</li>
+          <li>Grafana + Observable 制作的遥测仪表板，支持讲述式演示。</li>
+          <li>Terraform 模块：自动部署 edge gateway、cache、云端推理。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>下一步</h2>
+        <p>计划将 Cost Model 接入 reinforcement tuning，让调度策略可以随业务目标自适应；并把 Carbon Aware API 纳入 runtime 约束。</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
+

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOMI Work Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #03060d;
+      --grid: rgba(73, 209, 255, 0.09);
+      --primary: #69f1ff;
+      --accent: #ff7af5;
+      --warning: #ffe36c;
+      --success: #6fffb0;
+      --muted: rgba(255, 255, 255, 0.75);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Share Tech Mono", "Orbitron", system-ui, sans-serif;
+      background: radial-gradient(circle at 15% 10%, rgba(105, 241, 255, 0.08), transparent 55%),
+                  radial-gradient(circle at 80% 0%, rgba(255, 122, 245, 0.12), transparent 45%),
+                  var(--bg);
+      color: #e4fbff;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 140px 140px, 140px 140px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    .stars,
+    .stars::after,
+    .stars::before {
+      position: fixed;
+      inset: 0;
+      content: "";
+      background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='3' height='3'%3E%3Ccircle cx='1.5' cy='1.5' r='1.2' fill='white'/%3E%3C/svg%3E") repeat;
+      animation: drift 70s linear infinite;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    .stars::after {
+      animation-duration: 110s;
+      opacity: 0.15;
+      filter: blur(1px);
+    }
+
+    .stars::before {
+      animation-duration: 150s;
+      opacity: 0.1;
+      filter: blur(2px);
+    }
+
+    @keyframes drift {
+      from { transform: translateY(0); }
+      to { transform: translateY(-50%); }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 4;
+      padding: 1.2rem clamp(1.5rem, 4vw, 3rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(3, 6, 15, 0.75);
+      border-bottom: 1px solid rgba(105, 241, 255, 0.2);
+      backdrop-filter: blur(14px);
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: var(--primary);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(105, 241, 255, 0.4);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .back-link::before {
+      content: "◂";
+      color: var(--accent);
+    }
+
+    .back-link:hover {
+      border-color: rgba(255, 122, 245, 0.6);
+      transform: translateX(-3px);
+    }
+
+    .hud-pill {
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      background: rgba(105, 241, 255, 0.1);
+      border: 1px solid rgba(105, 241, 255, 0.35);
+      color: var(--warning);
+    }
+
+    main {
+      padding: clamp(1.5rem, 4vw, 3rem);
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .work-shell {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .panel {
+      position: relative;
+      background: rgba(1, 8, 18, 0.85);
+      border: 1px solid rgba(105, 241, 255, 0.25);
+      border-radius: 20px;
+      padding: clamp(1.2rem, 2vw, 1.8rem);
+      box-shadow: inset 0 0 35px rgba(105, 241, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.02);
+      pointer-events: none;
+    }
+
+    .hero-panel {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(105, 241, 255, 0.3);
+      background: rgba(105, 241, 255, 0.1);
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--success);
+    }
+
+    .hero-panel h1 {
+      margin: 0;
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero-panel p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .hero-inset {
+      display: grid;
+      grid-template-columns: minmax(140px, 180px) 1fr;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .hero-inset img {
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid rgba(105, 241, 255, 0.35);
+      box-shadow: 0 0 30px rgba(105, 241, 255, 0.25);
+      object-fit: cover;
+      max-height: 200px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+
+    .metric-card {
+      border: 1px solid rgba(105, 241, 255, 0.25);
+      border-radius: 16px;
+      padding: 1rem;
+      text-align: center;
+      background: rgba(0, 10, 22, 0.7);
+    }
+
+    .metric-card span {
+      display: block;
+      font-size: 2rem;
+      color: var(--primary);
+      font-family: "Orbitron", sans-serif;
+    }
+
+    .metric-card p {
+      margin: 0.4rem 0 0;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .log-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .log-feed {
+      height: 200px;
+      background: rgba(0, 5, 12, 0.7);
+      border-radius: 14px;
+      border: 1px solid rgba(105, 241, 255, 0.25);
+      padding: 1rem;
+      overflow: hidden;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .log-feed::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(transparent 0 3px, rgba(0,0,0,0.15) 3px 6px);
+      pointer-events: none;
+    }
+
+    .log-feed p {
+      margin: 0.2rem 0;
+    }
+
+    .status-line {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      color: var(--warning);
+      min-height: 1.5em;
+    }
+
+    .carousel-panel {
+      border-radius: 20px;
+      border: 1px solid rgba(105, 241, 255, 0.25);
+      background: rgba(1, 8, 18, 0.85);
+      padding: 1.5rem;
+    }
+
+    .carousel-panel h2 {
+      margin: 0 0 1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: 1rem;
+      color: var(--primary);
+    }
+
+    .carousel-shell {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(105, 241, 255, 0.2);
+      background: rgba(0, 6, 14, 0.8);
+      mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+      animation: scrollX 36s linear infinite;
+      width: max-content;
+    }
+
+    .carousel-track:hover {
+      animation-play-state: paused;
+    }
+
+    .carousel-card {
+      min-width: 260px;
+      max-width: 320px;
+      border-radius: 18px;
+      border: 1px solid rgba(105, 241, 255, 0.25);
+      padding: 1rem;
+      background: rgba(1, 5, 12, 0.75);
+      text-decoration: none;
+      color: inherit;
+      display: grid;
+      gap: 0.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-card span {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .carousel-card h3 {
+      margin: 0;
+      font-size: 1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .carousel-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.9rem;
+    }
+
+    .carousel-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 25%, rgba(255, 122, 245, 0.18), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .carousel-card:hover::after {
+      opacity: 1;
+    }
+
+    @keyframes scrollX {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .spotlight {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .longform {
+      padding: 1.5rem;
+      border-radius: 20px;
+      border: 1px solid rgba(105, 241, 255, 0.25);
+      background: rgba(0, 6, 16, 0.8);
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .longform h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .longform p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .spotlight-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-radius: 20px;
+      border: 1px solid rgba(105, 241, 255, 0.2);
+      background: rgba(0, 4, 10, 0.8);
+    }
+
+    .spotlight-list li {
+      padding: 1rem 1.2rem;
+      border-bottom: 1px solid rgba(105, 241, 255, 0.15);
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .spotlight-list li:last-child {
+      border-bottom: none;
+    }
+
+    .spotlight-list span {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .spotlight-list a {
+      color: #f3fbff;
+      text-decoration: none;
+      letter-spacing: 0.12em;
+      transition: color 0.2s ease;
+    }
+
+    .spotlight-list a:hover {
+      color: var(--primary);
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .cta-card {
+      border: 1px solid rgba(105, 241, 255, 0.25);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+      text-decoration: none;
+      color: #f6fbff;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      background: rgba(0, 8, 18, 0.8);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .cta-card span {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.3em;
+    }
+
+    .cta-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 122, 245, 0.45);
+    }
+
+    footer {
+      padding: 2rem clamp(1.5rem, 4vw, 3rem);
+      text-align: center;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    @media (max-width: 720px) {
+      .hero-inset {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .back-link {
+        font-size: 0.7rem;
+      }
+
+      .hud-pill {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+
+  <header>
+    <a class="back-link" href="index.html">Return Terminal</a>
+    <div class="hud-pill">WORK NODE · ACTIVE</div>
+  </header>
+
+  <main>
+    <section class="work-shell">
+      <article class="panel hero-panel">
+        <span class="badge">Systems · AI · Future Interfaces</span>
+        <h1>Interstellar Work Archive</h1>
+        <p>将 Microsoft Research Blog 的叙事方式带入个人实验室。围绕系统智能、人机协作与责任型创新，把概念、工程与表达整合成可交付的体验。</p>
+        <div class="hero-inset">
+          <img src="resource/img/yomi_yay.jpg" alt="YOMI Research Portrait">
+          <div>
+            <p>霓虹终端只是入口：真正的旅程来自可复用的研究模块、可治理的 Copilot 协作、以及可审计的 Responsible Research 轨迹。</p>
+            <p><strong>Insight · Impact · Integrity</strong></p>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2 style="letter-spacing:0.18em; text-transform:uppercase; margin-top:0;">Mission Metrics</h2>
+        <div class="metric-grid">
+          <div class="metric-card">
+            <span>05</span>
+            <p>Active programs</p>
+          </div>
+          <div class="metric-card">
+            <span>12</span>
+            <p>Field prototypes</p>
+          </div>
+          <div class="metric-card">
+            <span>∞</span>
+            <p>未完待续的想象力</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel log-panel">
+        <h2 style="letter-spacing:0.18em; text-transform:uppercase; margin:0;">Deep Blue Status</h2>
+        <div class="status-line" id="status-line">正在同步深蓝路线图...</div>
+        <div class="log-feed" id="log-feed" aria-live="polite"></div>
+      </article>
+    </section>
+
+    <section class="carousel-panel">
+      <h2>Orbital Workstream · Continuous Relay</h2>
+      <div class="carousel-shell">
+        <div class="carousel-track" id="work-carousel">
+          <a class="carousel-card" href="work-hybrid-serving.html">
+            <span>Systems Track</span>
+            <h3>Hybrid Serving Atlas</h3>
+            <p>以云数据库式思维重构推理热路径，协调边缘与云，保证 sub-50ms SLA。</p>
+          </a>
+          <a class="carousel-card" href="work-copilot-memory.html">
+            <span>Copilot Ops</span>
+            <h3>Copilot Memory Mesh</h3>
+            <p>让协作 Agent 拥有团队记忆与治理策略，同步知识库与操作习惯。</p>
+          </a>
+          <a class="carousel-card" href="work-responsible-telemetry.html">
+            <span>Responsible</span>
+            <h3>Telemetry Loop</h3>
+            <p>自监督遥测 + 可视化审计，用 Field Notes 构成“可运行的论文”。</p>
+          </a>
+          <a class="carousel-card" href="work-autonomous-alerts.html">
+            <span>Logbook</span>
+            <h3>Autonomous Alertworks</h3>
+            <p>让系统自己提出告警问题，结合 LLM 解释与可验证的数据流。</p>
+          </a>
+          <a class="carousel-card" href="work-terraform-garden.html">
+            <span>Terraform</span>
+            <h3>Signal Garden</h3>
+            <p>将地貌改造遥测转化为可交互的指标花园，支撑地外栖息地部署。</p>
+          </a>
+          <a class="carousel-card" href="work-cryo-codex.html">
+            <span>Cryo Registry</span>
+            <h3>Memory Codex</h3>
+            <p>记录 512 名殖民者的冷冻记忆，并提供治理、合规与可解释接口。</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="spotlight">
+      <article class="longform">
+        <p class="badge" style="justify-self:start;">Research Spotlight</p>
+        <h2>像 Microsoft Research Blog 那样讲故事</h2>
+        <p>从调度器到服务质量指标，拆解我在边缘云协同中的观察与实践，配合真实指标与设计图，让读者感受到可信叙述。</p>
+        <p>Logbook 02 · 自监督遥测：让系统自己提出告警问题。Field Notes · 协作 Agent 的“团队记忆”实验。Notebook · 兴趣实验室的实时可视化。</p>
+        <div class="cta-grid">
+          <a class="cta-card" href="research.html">
+            Research Gallery
+            <span>// Gallery Node</span>
+          </a>
+          <a class="cta-card" href="work-hybrid-serving.html">
+            Systems Track
+            <span>// Hybrid Atlas</span>
+          </a>
+          <a class="cta-card" href="work-copilot-memory.html">
+            Copilot Ops
+            <span>// Memory Mesh</span>
+          </a>
+        </div>
+      </article>
+      <ul class="spotlight-list">
+        <li>
+          <span>Logbook 02</span>
+          <a href="research.html">自监督遥测：让系统自己提出告警问题</a>
+        </li>
+        <li>
+          <span>Field Notes</span>
+          <a href="work-copilot-memory.html">协作 Agent 的“团队记忆”实验</a>
+        </li>
+        <li>
+          <span>Notebook</span>
+          <a href="work-terraform-garden.html">兴趣实验室的实时可视化</a>
+        </li>
+        <li>
+          <span>Telemetry</span>
+          <a href="work-responsible-telemetry.html">Hybrid Serving 试验场的实时指标</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>© 2025 YOMI Research Studio · 深蓝路线图持续更新</footer>
+
+  <script>
+    const statusLine = document.getElementById("status-line");
+    const logFeed = document.getElementById("log-feed");
+    const carouselTrack = document.getElementById("work-carousel");
+
+    const statusPhrases = [
+      "Logbook 更新：Hybrid Serving 指标上传完毕。",
+      "Field Notes：协作 Agent 团队记忆通过审计。",
+      "Notebook：兴趣实验室实时可视化刷新。",
+      "Metric Deck：05 programs · 12 prototypes on orbit。",
+      "Insight · Impact · Integrity · 深蓝路线图稳定。"
+    ];
+
+    let statusIndex = 0;
+    setInterval(() => {
+      statusLine.textContent = statusPhrases[statusIndex];
+      statusIndex = (statusIndex + 1) % statusPhrases.length;
+    }, 2600);
+
+    const logLines = [
+      "[SYNC] Systems for AI → 云数据库式推理内核重构完成。",
+      "[VERIFY] Copilot Collaboration → 治理策略通过安全检查。",
+      "[RELAY] Responsible Research → 自动化验证轨迹已上传。",
+      "[PING] Logbook 02 → 自监督遥测发出 3 条告警问答。",
+      "[STREAM] Field Notes → 协作 Agent 团队记忆刷新 12 次。",
+      "[VIS] Notebook → 兴趣实验室可视化信号稳定。",
+      "[READY] Gallery → research.html 工作节点已上线。"
+    ];
+
+    let logIndex = 0;
+    function pushLog() {
+      const line = document.createElement("p");
+      line.textContent = logLines[logIndex];
+      logFeed.appendChild(line);
+      if (logFeed.children.length > 7) {
+        logFeed.removeChild(logFeed.firstChild);
+      }
+      logFeed.scrollTop = logFeed.scrollHeight;
+      logIndex = (logIndex + 1) % logLines.length;
+    }
+    pushLog();
+    setInterval(pushLog, 2200);
+
+    if (carouselTrack) {
+      carouselTrack.innerHTML += carouselTrack.innerHTML;
+    }
+  </script>
+</body>
+</html>
+

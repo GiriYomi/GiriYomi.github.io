@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signal Garden · YOMI Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #03060c;
+      --primary: #69f1ff;
+      --accent: #ff7af5;
+      --muted: rgba(255, 255, 255, 0.78);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Share Tech Mono", "Orbitron", system-ui, sans-serif;
+      background: radial-gradient(circle at 15% 0%, rgba(105, 241, 255, 0.14), transparent 55%),
+                  radial-gradient(circle at 75% 10%, rgba(255, 122, 245, 0.12), transparent 50%),
+                  var(--bg);
+      color: #f2fbff;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(105, 241, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(105, 241, 255, 0.08) 1px, transparent 1px);
+      background-size: 140px 140px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      padding: 1.2rem clamp(1.5rem, 4vw, 3rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(2, 5, 14, 0.84);
+      border-bottom: 1px solid rgba(105, 241, 255, 0.25);
+      backdrop-filter: blur(16px);
+      z-index: 5;
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: var(--primary);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(105, 241, 255, 0.35);
+    }
+
+    .back-link::before { content: "◂"; color: var(--accent); }
+
+    .meta-pill {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(105, 241, 255, 0.3);
+      color: var(--accent);
+    }
+
+    main {
+      padding: clamp(1.5rem, 4vw, 3rem);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      border-radius: 22px;
+      border: 1px solid rgba(105, 241, 255, 0.2);
+      background: rgba(2, 6, 16, 0.86);
+      padding: clamp(1.5rem, 3vw, 2.4rem);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(105, 241, 255, 0.3);
+      background: rgba(105, 241, 255, 0.12);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .hero h1 {
+      margin: 0.4rem 0;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .meta-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .meta-list li {
+      border: 1px solid rgba(105, 241, 255, 0.2);
+      border-radius: 12px;
+      padding: 0.65rem 0.9rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .detail-block {
+      border-radius: 18px;
+      border: 1px solid rgba(105, 241, 255, 0.2);
+      background: rgba(1, 4, 12, 0.85);
+      padding: 1.3rem;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .detail-block h2 {
+      margin: 0;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+
+    .detail-block p,
+    .detail-block li {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.92rem;
+    }
+
+    .detail-block ul {
+      padding-left: 1.1rem;
+      margin: 0;
+      display: grid;
+      gap: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="back-link" href="research.html">Return Gallery</a>
+    <div class="meta-pill">Terraform / Visualization</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="badge">Signal Garden</span>
+        <h1>地貌改造指标花园</h1>
+        <p>把冷冰冰的地貌改造遥测，转化为沉浸式的指标花园。使命是让工程师、决策者和公众共享同一套实时感知。</p>
+        <ul class="meta-list">
+          <li>Duration · 2023 Q4 - 2024 Q4</li>
+          <li>Role · Narrative Engineer · Data Visualization</li>
+          <li>Stack · Observable · WebGL · Azure Maps</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>研究摘要</strong>：提出 Terraform Bloom 模型，将遥测流映射为植物生长、天气与地貌层级，形成具备语义的数字花园。</p>
+        <p><strong>交付物</strong>：交互式仪表板、教育体验站、以及 Stroybook API，供未来殖民任务使用。</p>
+      </div>
+    </section>
+
+    <section class="detail-grid">
+      <article class="detail-block">
+        <h2>Abstract</h2>
+        <p>指标需要叙事。Signal Garden 用生态隐喻呈现能源、资源与生存指数，让 Terraform 计划变得可理解、可参与。</p>
+        <ul>
+          <li>每个传感器映射为植物：水分=湿度，光照=能量，生长=产能。</li>
+          <li>观众可回放任意时间点，观察“植物”对事件的反应。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>Methodology</h2>
+        <ul>
+          <li>Semiotic Encoding：指标通过颜色、振幅、粒子密度表达。</li>
+          <li>Story Layers：工程层、生态层、公众层三种视图，保证信息准确性。</li>
+          <li>Latency Budget：使用 WebGL instancing 实现 60FPS 渲染。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>Experiment Setup</h2>
+        <ul>
+          <li>数据：Terraform 模拟器输出的 64 条时序 + 12 个事件标记。</li>
+          <li>参与者：工程师 12 人、公众志愿者 30 人。</li>
+          <li>指标：理解度问卷、决策时间、体验满意度。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>Results</h2>
+        <ul>
+          <li>工程师决策时间缩短 18%，公众理解度评分 4.6/5。</li>
+          <li>体验站吸引 2.3k 访客，收集 600 条反馈笔记。</li>
+          <li>Terraform 团队采用 Storybook API 生成周报。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>Deliverables</h2>
+        <ul>
+          <li>Signal Garden WebGL 应用 + 部署脚本。</li>
+          <li>Storybook API：GraphQL 接口导出叙事片段。</li>
+          <li>教育包：包含多语言讲稿、模型与互动玩法。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>Next</h2>
+        <p>下一阶段计划引入 Autonomous Alertworks，使花园在指标异常时自动亮起，并与 Cryo Codex 的记忆点位联动。</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
+

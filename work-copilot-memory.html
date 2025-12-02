@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copilot Memory Mesh · YOMI Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #05030b;
+      --primary: #69f1ff;
+      --accent: #ff7af5;
+      --muted: rgba(255, 255, 255, 0.8);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Share Tech Mono", "Orbitron", system-ui, sans-serif;
+      background: radial-gradient(circle at 12% 8%, rgba(105, 241, 255, 0.15), transparent 55%),
+                  radial-gradient(circle at 78% 4%, rgba(255, 122, 245, 0.16), transparent 50%),
+                  var(--bg);
+      color: #f3fbff;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(105, 241, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(105, 241, 255, 0.08) 1px, transparent 1px);
+      background-size: 140px 140px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      padding: 1.2rem clamp(1.5rem, 4vw, 3rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(4, 4, 15, 0.82);
+      border-bottom: 1px solid rgba(105, 241, 255, 0.25);
+      backdrop-filter: blur(16px);
+      z-index: 5;
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: var(--primary);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(105, 241, 255, 0.35);
+    }
+
+    .back-link::before {
+      content: "◂";
+      color: var(--accent);
+    }
+
+    .meta-pill {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(105, 241, 255, 0.3);
+      color: var(--accent);
+    }
+
+    main {
+      padding: clamp(1.5rem, 4vw, 3rem);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      border-radius: 22px;
+      border: 1px solid rgba(105, 241, 255, 0.2);
+      background: rgba(5, 6, 18, 0.88);
+      padding: clamp(1.5rem, 3vw, 2.4rem);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(105, 241, 255, 0.3);
+      background: rgba(105, 241, 255, 0.12);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .hero h1 {
+      margin: 0.4rem 0;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .meta-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .meta-list li {
+      border: 1px solid rgba(105, 241, 255, 0.2);
+      border-radius: 12px;
+      padding: 0.65rem 0.9rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .detail-block {
+      border-radius: 18px;
+      border: 1px solid rgba(105, 241, 255, 0.2);
+      background: rgba(1, 4, 12, 0.85);
+      padding: 1.3rem;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .detail-block h2 {
+      margin: 0;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+
+    .detail-block p,
+    .detail-block li {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.92rem;
+    }
+
+    .detail-block ul {
+      padding-left: 1.1rem;
+      margin: 0;
+      display: grid;
+      gap: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="back-link" href="research.html">Return Gallery</a>
+    <div class="meta-pill">Copilot Ops</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="badge">Copilot Memory Mesh</span>
+        <h1>多 Agent 团队记忆层</h1>
+        <p>为知识密集型团队构建统一的记忆网格：融合上下文检索、操作轨迹与治理策略，让 Copilot 真正理解组织语境。</p>
+        <ul class="meta-list">
+          <li>Duration · 2024 Q3 - 2025 Q2</li>
+          <li>Role · Product Scientist · Conversation Engineer</li>
+          <li>Stack · Azure OpenAI · Vector DB · Policy Engine</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>研究摘要</strong>：提出 Memory Mesh 架构，将知识片段划分为「语义节点」「操作节点」「策略节点」，借助图数据库实现团体级记忆。</p>
+        <p><strong>交付物</strong>：交互式白皮书、Graph 模型可视化、以及可部署的 Policy-as-Code 模板。</p>
+      </div>
+    </section>
+
+    <section class="detail-grid">
+      <article class="detail-block">
+        <h2>Abstract</h2>
+        <p>传统 Copilot 基于个人上下文，无法保留团队实践。Memory Mesh 让 Agent 可以引用历史讨论、审批和治理规则，降低幻觉与越权风险。</p>
+        <ul>
+          <li>引入 Conversation Replay + Policy Enforcement 双通道。</li>
+          <li>通过密钥访问控制确保隐私域隔离。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>Methodology</h2>
+        <ul>
+          <li>Graph Embedding：将知识、操作、策略映射为异构图节点。</li>
+          <li>Memory Ticket：每次对话生成 Ticket，记录引用和审批链。</li>
+          <li>Policy Sandbox：在离线沙箱中验证 Agent 行为再发布。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>Experiment Setup</h2>
+        <ul>
+          <li>数据集：5 个真实项目的 18k 条对话 + 400 条流程文档。</li>
+          <li>对照组：个人记忆 + SharePoint 搜索。</li>
+          <li>指标：回答准确度、策略合规率、协作完成时间。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>Results</h2>
+        <ul>
+          <li>策略合规率 99.2%，相比对照组提升 12%。</li>
+          <li>平均响应准确度 BLEU 35 → 52；人工复核时间下降 38%。</li>
+          <li>跨团队知识复用次数 +64%，由 Memory Ticket 可追踪。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>Deliverables</h2>
+        <ul>
+          <li>Memory Mesh 技术文档（42 页）+ Neo4j schema。</li>
+          <li>Policy-as-Code 模板（Rego），可嵌入 GitOps 管道。</li>
+          <li>Copilot Studio 插件：可视化选取记忆节点。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>Next</h2>
+        <p>计划加入人类反馈回路（RHF），使 Memory Ticket 带有信任系数；并研究多语言团队记忆同步问题。</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
+

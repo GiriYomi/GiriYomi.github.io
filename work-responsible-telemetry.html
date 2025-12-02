@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telemetry Loop · YOMI Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #02050c;
+      --primary: #69f1ff;
+      --accent: #ff7af5;
+      --warning: #ffe36c;
+      --muted: rgba(255, 255, 255, 0.78);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Share Tech Mono", "Orbitron", system-ui, sans-serif;
+      background: radial-gradient(circle at 18% 0%, rgba(105, 241, 255, 0.15), transparent 55%),
+                  radial-gradient(circle at 80% 12%, rgba(255, 122, 245, 0.12), transparent 50%),
+                  var(--bg);
+      color: #effbff;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(105, 241, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(105, 241, 255, 0.08) 1px, transparent 1px);
+      background-size: 140px 140px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      padding: 1.2rem clamp(1.5rem, 4vw, 3rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(1, 5, 14, 0.82);
+      border-bottom: 1px solid rgba(105, 241, 255, 0.25);
+      backdrop-filter: blur(16px);
+      z-index: 5;
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: var(--primary);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(105, 241, 255, 0.35);
+    }
+
+    .back-link::before { content: "◂"; color: var(--accent); }
+
+    .meta-pill {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(105, 241, 255, 0.3);
+      color: var(--warning);
+    }
+
+    main {
+      padding: clamp(1.5rem, 4vw, 3rem);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      border-radius: 22px;
+      border: 1px solid rgba(105, 241, 255, 0.2);
+      background: rgba(1, 6, 16, 0.86);
+      padding: clamp(1.5rem, 3vw, 2.4rem);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(105, 241, 255, 0.3);
+      background: rgba(105, 241, 255, 0.12);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .hero h1 {
+      margin: 0.4rem 0;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .meta-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .meta-list li {
+      border: 1px solid rgba(105, 241, 255, 0.2);
+      border-radius: 12px;
+      padding: 0.65rem 0.9rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .detail-block {
+      border-radius: 18px;
+      border: 1px solid rgba(105, 241, 255, 0.2);
+      background: rgba(0, 4, 12, 0.85);
+      padding: 1.3rem;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .detail-block h2 {
+      margin: 0;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+
+    .detail-block p,
+    .detail-block li {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.92rem;
+    }
+
+    .detail-block ul {
+      padding-left: 1.1rem;
+      margin: 0;
+      display: grid;
+      gap: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="back-link" href="research.html">Return Gallery</a>
+    <div class="meta-pill">Responsible Research</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="badge">Telemetry Loop</span>
+        <h1>自监督遥测与审计链</h1>
+        <p>把每一次实验视为一个可解释的数据包：遥测、Field Notes、指标、结论全部串联，形成可复现、可审计的 Responsible Research 工作流程。</p>
+        <ul class="meta-list">
+          <li>Duration · 2023 Q4 - 2025 Q1</li>
+          <li>Role · Responsible AI Lead · Narrative Ops</li>
+          <li>Stack · Azure Monitor · Grafana · Observable</li>
+        </ul>
+      </div>
+      <div>
+        <p><strong>研究摘要</strong>：提出 Self-Verifying Telemetry（SVT）框架，将模型行为、环境变量与人为注释映射到统一的证据图，支撑政策评审与发表要求。</p>
+        <p><strong>交付物</strong>：遥测白皮书、审计脚本库、可交互故事板，帮助科研与产品团队共视真相。</p>
+      </div>
+    </section>
+
+    <section class="detail-grid">
+      <article class="detail-block">
+        <h2>Abstract</h2>
+        <p>传统指标只给出平均值，无法描述研究叙事。Telemetry Loop 捕获「数据-设计-决策」的完整链路，使 Responsible AI 审查能在小时级完成。</p>
+        <ul>
+          <li>遥测事件采用 provenance ID，允许追溯到原始实验。</li>
+          <li>Field Notes 以结构化 Markdown 存档，映射到可视化面板。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>Methodology</h2>
+        <ul>
+          <li>Self-Supervised Checks：利用模型自身生成的 counterfactual 作为监控信号。</li>
+          <li>Metric Graph：将指标节点与决策节点连成图谱，寻找偏差路径。</li>
+          <li>Audit DSL：用策略语言描述约束，自动编译成观察器。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>Experiment Setup</h2>
+        <ul>
+          <li>数据：6 个 Copilot 工作流，1200 小时运行日志。</li>
+          <li>指标：Bias@Top-K、Explainability Coverage、Policy Drift。</li>
+          <li>工具：Azure Monitor Data Collection + 自研事件回放。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>Results</h2>
+        <ul>
+          <li>审计周期从 10 天缩短到 36 小时；问题复现率 98%。</li>
+          <li>Explainability Coverage 提升 28%，来自自动生成的 counterfactual 面板。</li>
+          <li>Policy Drift 告警提前平均 3.2 天，降低事故成本。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>Deliverables</h2>
+        <ul>
+          <li>Telemetry Loop 技术白皮书（48 页），含 SVT 伪代码。</li>
+          <li>Grafana Storybook 模板：将 Field Notes 直接渲染为讲述式图表。</li>
+          <li>审计 CLI：一条命令导出证据包供外部评审。</li>
+        </ul>
+      </article>
+
+      <article class="detail-block">
+        <h2>Next</h2>
+        <p>计划引入 Differential Privacy 噪声校准，以及将 Telemetry Loop 接入 Cryo Registry，以统一研究与产品的责任链。</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
+
