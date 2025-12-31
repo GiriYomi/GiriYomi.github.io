@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Gallery · YOMI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #02050c;
+      --grid: rgba(73, 209, 255, 0.08);
+      --primary: #69f1ff;
+      --accent: #ff7af5;
+      --warning: #ffe36c;
+      --muted: rgba(255, 255, 255, 0.78);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Share Tech Mono", "Orbitron", system-ui, sans-serif;
+      background: radial-gradient(circle at 20% 0%, rgba(105, 241, 255, 0.13), transparent 55%),
+                  radial-gradient(circle at 82% 12%, rgba(255, 122, 245, 0.15), transparent 45%),
+                  var(--bg);
+      color: #f2fbff;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 140px 140px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      padding: 1.2rem clamp(1.5rem, 4vw, 3.2rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(2, 5, 12, 0.8);
+      border-bottom: 1px solid rgba(105, 241, 255, 0.25);
+      backdrop-filter: blur(18px);
+      z-index: 5;
+    }
+
+    .back-link {
+      text-decoration: none;
+      color: var(--primary);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(105, 241, 255, 0.35);
+    }
+
+    .back-link::before {
+      content: "◂";
+      color: var(--accent);
+    }
+
+    .status-pill {
+      font-size: 0.75rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      background: rgba(105, 241, 255, 0.16);
+      border: 1px solid rgba(105, 241, 255, 0.4);
+      color: var(--warning);
+    }
+
+    main {
+      padding: clamp(1.5rem, 4vw, 3.2rem);
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .gallery-hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      border-radius: 22px;
+      border: 1px solid rgba(105, 241, 255, 0.2);
+      background: rgba(2, 8, 18, 0.85);
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .gallery-hero h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .gallery-hero p {
+      margin: 0.6rem 0 0;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .gallery-hero ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .gallery-hero li {
+      padding: 0.75rem 1rem;
+      border-radius: 14px;
+      border: 1px solid rgba(105, 241, 255, 0.25);
+      background: rgba(0, 6, 16, 0.8);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .gallery-card {
+      border-radius: 18px;
+      border: 1px solid rgba(105, 241, 255, 0.2);
+      background: rgba(1, 6, 14, 0.85);
+      padding: 1.2rem;
+      text-decoration: none;
+      color: inherit;
+      display: grid;
+      gap: 0.6rem;
+      min-height: 220px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .gallery-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 25% 20%, rgba(255, 122, 245, 0.18), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 122, 245, 0.4);
+    }
+
+    .gallery-card:hover::after {
+      opacity: 1;
+    }
+
+    .gallery-card span {
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .gallery-card h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .gallery-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      padding: 2rem clamp(1.5rem, 4vw, 3rem);
+      text-align: center;
+      letter-spacing: 0.18em;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="back-link" href="work.html">Return Work Node</a>
+    <div class="status-pill">Gallery Online</div>
+  </header>
+
+  <main>
+    <section class="gallery-hero">
+      <div>
+        <h1>Research Gallery</h1>
+        <p>像 Microsoft Research Blog 那样交付可信故事。每一张卡片对应一个可运行的工作节点，包含抽象、方法、指标与交付工件。</p>
+      </div>
+      <ul>
+        <li>Systems for AI · Hybrid Serving</li>
+        <li>Copilot Collaboration · Memory Mesh</li>
+        <li>Responsible Research · Telemetry Loop</li>
+        <li>Terraform & Cryo Registry · Narrative Ops</li>
+      </ul>
+    </section>
+
+    <section class="gallery-grid">
+      <a class="gallery-card" href="work-hybrid-serving.html">
+        <span>Systems Track</span>
+        <h3>Hybrid Serving Atlas</h3>
+        <p>分布式推理调度 + sub-50ms SLA 实验场，兼容 edge-cloud 资源池。</p>
+      </a>
+      <a class="gallery-card" href="work-copilot-memory.html">
+        <span>Copilot Ops</span>
+        <h3>Copilot Memory Mesh</h3>
+        <p>多 Agent 团队记忆层，覆盖知识治理、审计与解释链。</p>
+      </a>
+      <a class="gallery-card" href="work-responsible-telemetry.html">
+        <span>Responsible</span>
+        <h3>Telemetry Loop</h3>
+        <p>自监督遥测 + Field Notes 可视化，构成可审计的研究故事。</p>
+      </a>
+      <a class="gallery-card" href="work-autonomous-alerts.html">
+        <span>Logbook</span>
+        <h3>Autonomous Alertworks</h3>
+        <p>让系统自己提出问题，结合 LLM 解释和指标验证。</p>
+      </a>
+      <a class="gallery-card" href="work-terraform-garden.html">
+        <span>Terraform</span>
+        <h3>Signal Garden</h3>
+        <p>地貌改造遥测的沉浸式指标花园，服务地外栖息地。</p>
+      </a>
+      <a class="gallery-card" href="work-cryo-codex.html">
+        <span>Cryo Registry</span>
+        <h3>Memory Codex</h3>
+        <p>512 名殖民者的记忆封存、治理与合规可视化。</p>
+      </a>
+    </section>
+  </main>
+
+  <footer>© 2025 YOMI Research Studio · Gallery Node</footer>
+</body>
+</html>
+
