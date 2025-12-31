@@ -8,26 +8,26 @@
 // NAVIGATION
 // ============================================
 const NAV_ITEMS = [
-  { label: 'Home', href: '/' },
-  { label: 'Publications', href: '/publications/' },
-  { label: 'People', href: '/people/' },
-  { label: 'CFP', href: '/cfp/' },
-  { label: 'Gallery', href: '/gallery/' },
-  { label: 'Datasets', href: '/datasets/' },
-  { label: 'About', href: '/about/' }
+  { label: 'Home', href: 'index.html' },
+  { label: 'Publications', href: 'publications.html' },
+  { label: 'People', href: 'people.html' },
+  { label: 'CFP', href: 'cfp.html' },
+  { label: 'Gallery', href: 'gallery.html' },
+  { label: 'Datasets', href: 'datasets.html' },
+  { label: 'About', href: 'about.html' }
 ];
 
 function renderNavbar(currentPage = '') {
   const navbar = document.getElementById('navbar');
   if (!navbar) return;
 
-  // Determine base path for GitHub Pages compatibility
+  // Determine base path
   const basePath = getBasePath();
 
   navbar.innerHTML = `
     <div class="navbar__inner">
-      <a href="${basePath}/" class="navbar__logo">
-        <span>DIRLab</span>
+      <a href="${basePath}index.html" class="navbar__logo">
+        <img src="${basePath}assets/img/dirlab-logo.png" alt="DIRLab" style="height: 45px;">
       </a>
       <nav class="navbar__nav" id="nav-menu">
         ${NAV_ITEMS.map(item => `
@@ -91,9 +91,13 @@ function renderFooter() {
   footer.innerHTML = `
     <div class="container">
       <div class="footer__inner">
-        <div class="footer__logo">DIRLab</div>
+        <div class="footer__logos">
+          <img src="${basePath}assets/img/dirlab-logo.png" alt="DIRLab" class="footer__logo-img" style="height: 60px;">
+          <img src="${basePath}assets/img/ud-logo.png" alt="University of Delaware" class="footer__logo-img" style="height: 50px;">
+        </div>
         <p style="color: rgba(255,255,255,0.7); font-size: var(--text-sm); max-width: 500px;">
           Data Intelligence Research Lab<br>
+          Department of Computer & Information Sciences<br>
           University of Delaware
         </p>
         <div class="footer__links">
@@ -115,12 +119,18 @@ function renderFooter() {
 
 // Get base path for GitHub Pages (handles both local and deployed)
 function getBasePath() {
-  // Check if we're on GitHub Pages
   const pathname = window.location.pathname;
-  // If path starts with a repo name (e.g., /GiriYomi.github.io/), return it
-  const match = pathname.match(/^\/[^\/]+\.github\.io/);
+  // Check if we're in a subdirectory (like GitHub Pages repo name)
+  const match = pathname.match(/^\/[^\/]+\.github\.io\//);
   if (match) {
     return match[0];
+  }
+  // Check if we're viewing a file directly (file:// protocol)
+  if (window.location.protocol === 'file:') {
+    // Get the directory of the current file
+    const pathParts = pathname.split('/');
+    pathParts.pop(); // Remove the filename
+    return pathParts.join('/') + '/';
   }
   return '';
 }
@@ -191,6 +201,29 @@ function initHeroScroll() {
 }
 
 // ============================================
+// NEWS TICKER
+// ============================================
+function initNewsTicker(newsData) {
+  const ticker = document.getElementById('news-ticker');
+  if (!ticker || !newsData || newsData.length === 0) return;
+
+  // Create track with duplicated items for seamless loop
+  const itemsHtml = newsData.map(item => `
+    <div class="news-ticker__item">
+      <span class="news-ticker__date">${item.date}</span>
+      <span class="news-ticker__content">${item.content}</span>
+    </div>
+  `).join('');
+
+  ticker.innerHTML = `
+    <div class="news-ticker__track">
+      ${itemsHtml}
+      ${itemsHtml}
+    </div>
+  `;
+}
+
+// ============================================
 // SEARCH FUNCTIONALITY
 // ============================================
 function initSearch(inputId, items, renderCallback) {
@@ -207,6 +240,91 @@ function initSearch(inputId, items, renderCallback) {
 
   input.addEventListener('input', (e) => {
     handleSearch(e.target.value);
+  });
+}
+
+// ============================================
+// TABLE SORTING
+// ============================================
+function initTableSort(tableId, data, renderCallback) {
+  const table = document.getElementById(tableId);
+  if (!table) return;
+
+  let sortColumn = null;
+  let sortDirection = 'default';
+
+  table.querySelectorAll('th.sortable').forEach((th, index) => {
+    th.addEventListener('click', () => {
+      const column = th.dataset.column;
+      
+      // Cycle through: default -> asc -> desc -> default
+      if (sortColumn !== column) {
+        sortColumn = column;
+        sortDirection = 'asc';
+      } else {
+        if (sortDirection === 'asc') {
+          sortDirection = 'desc';
+        } else if (sortDirection === 'desc') {
+          sortDirection = 'default';
+          sortColumn = null;
+        } else {
+          sortDirection = 'asc';
+        }
+      }
+
+      // Update visual indicators
+      table.querySelectorAll('th.sortable').forEach(h => {
+        h.classList.remove('asc', 'desc');
+      });
+      if (sortDirection !== 'default') {
+        th.classList.add(sortDirection);
+      }
+
+      // Sort and re-render
+      const sortedData = sortData(data, sortColumn, sortDirection);
+      renderCallback(sortedData);
+    });
+  });
+}
+
+function sortData(data, column, direction) {
+  if (direction === 'default' || !column) {
+    // Default sort: Tier > Venue > Deadline > Conference
+    return [...data].sort((a, b) => {
+      // Tier priority: A* > A > B > C > empty
+      const tierOrder = { 'A*': 0, 'A': 1, 'B': 2, 'C': 3, '': 4 };
+      const tierA = tierOrder[a.tier] ?? 4;
+      const tierB = tierOrder[b.tier] ?? 4;
+      if (tierA !== tierB) return tierA - tierB;
+      
+      // Then by venue name
+      const venueCompare = a.venue.localeCompare(b.venue);
+      if (venueCompare !== 0) return venueCompare;
+      
+      // Then by deadline
+      return a.deadlines.localeCompare(b.deadlines);
+    });
+  }
+
+  return [...data].sort((a, b) => {
+    let valA = a[column] ?? '';
+    let valB = b[column] ?? '';
+
+    // Special handling for tier
+    if (column === 'tier') {
+      const tierOrder = { 'A*': 0, 'A': 1, 'B': 2, 'C': 3, '': 4 };
+      valA = tierOrder[valA] ?? 4;
+      valB = tierOrder[valB] ?? 4;
+    }
+
+    if (typeof valA === 'string') {
+      valA = valA.toLowerCase();
+      valB = valB.toLowerCase();
+    }
+
+    if (valA < valB) return direction === 'asc' ? -1 : 1;
+    if (valA > valB) return direction === 'asc' ? 1 : -1;
+    return 0;
   });
 }
 
@@ -232,8 +350,10 @@ if (typeof module !== 'undefined' && module.exports) {
     getInitials,
     debounce,
     initHeroScroll,
+    initNewsTicker,
     initSearch,
+    initTableSort,
+    sortData,
     initCommon
   };
 }
-

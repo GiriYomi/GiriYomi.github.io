@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="DIRLab Team - Meet the faculty and students of the Data Intelligence Research Lab at University of Delaware.">
   <title>People | DIRLab</title>
-  <link rel="stylesheet" href="../assets/css/styles.css">
-  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 </head>
 <body>
   <!-- Navbar -->
@@ -58,8 +58,8 @@
   <footer class="footer" id="footer"></footer>
 
   <!-- Scripts -->
-  <script src="../data/people.js"></script>
-  <script src="../assets/js/main.js"></script>
+  <script src="data/people.js"></script>
+  <script src="assets/js/main.js"></script>
   <script>
     // Initialize common components
     initCommon('people');
@@ -70,7 +70,7 @@
       const pi = PEOPLE.pi;
       
       const photoHtml = pi.photo 
-        ? `<img src="../assets/img/people/${pi.photo}" alt="${pi.name}">`
+        ? `<img src="assets/img/people/${pi.photo}" alt="${pi.name}">`
         : `<span class="featured-person__avatar--placeholder">${getInitials(pi.name)}</span>`;
       
       const linksHtml = pi.links ? `
@@ -105,24 +105,17 @@
     // Render person card
     function renderPersonCard(person) {
       const photoHtml = person.photo 
-        ? `<img src="../assets/img/people/${person.photo}" alt="${person.name}">`
+        ? `<img src="assets/img/people/${person.photo}" alt="${person.name}">`
         : getInitials(person.name);
       
-      const hasProfile = person.bio || person.email;
-      const linkStart = hasProfile ? `<a href="${person.id}.html" style="text-decoration: none; color: inherit;">` : '';
-      const linkEnd = hasProfile ? '</a>' : '';
-      
       return `
-        ${linkStart}
         <div class="person-card">
           <div class="person-card__avatar">
             ${photoHtml}
           </div>
           <h4 class="person-card__name">${person.name}</h4>
           <p class="person-card__role">${person.role}</p>
-          ${!hasProfile ? '<p class="text-sm text-muted" style="margin-top: var(--space-2);">Profile pending</p>' : ''}
         </div>
-        ${linkEnd}
       `;
     }
 

@@ -15,7 +15,7 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero__logo">
-      <img src="assets/img/dirlab-logo.svg" alt="DIRLab Logo" id="hero-logo">
+      <img src="assets/img/dirlab-logo.png" alt="DIRLab Logo" id="hero-logo" style="background: white; padding: 30px; border-radius: 20px;">
     </div>
     <p class="hero__tagline">
       We develop innovative solutions to enhance the performance and reliability of data-intensive infrastructure
@@ -63,16 +63,11 @@
     <div class="container container--narrow">
       <div class="section-header">
         <h2 class="section-header__title">Latest News</h2>
+        <p class="section-header__subtitle">Stay updated with our latest research achievements and announcements</p>
       </div>
       
-      <div id="news-list">
-        <div class="news-item">
-          <span class="news-item__date">Jun 2025</span>
-          <div class="news-item__content">
-            <strong>STELLAR is accepted by SC'25.</strong> Congrats, Chris Egersdoerfer on his first SC paper! Welcome to the club.
-          </div>
-        </div>
-        <!-- More news items can be added here -->
+      <div class="news-ticker" id="news-ticker">
+        <!-- News items will be rendered here -->
       </div>
     </div>
   </section>
@@ -88,8 +83,8 @@
       </div>
       
       <div class="grid grid--4">
-        <a href="publications/" class="card" style="text-decoration: none;">
-          <div class="card__image" style="background: linear-gradient(135deg, #1a365d, #2c5282); display: flex; align-items: center; justify-content: center;">
+        <a href="publications.html" class="card" style="text-decoration: none;">
+          <div class="card__image" style="background: linear-gradient(135deg, #c41e3a, #e63950); display: flex; align-items: center; justify-content: center;">
             <span style="font-size: var(--text-5xl);">📄</span>
           </div>
           <div class="card__body">
@@ -98,8 +93,8 @@
           </div>
         </a>
         
-        <a href="people/" class="card" style="text-decoration: none;">
-          <div class="card__image" style="background: linear-gradient(135deg, #2c5282, #3182ce); display: flex; align-items: center; justify-content: center;">
+        <a href="people.html" class="card" style="text-decoration: none;">
+          <div class="card__image" style="background: linear-gradient(135deg, #9a1830, #c41e3a); display: flex; align-items: center; justify-content: center;">
             <span style="font-size: var(--text-5xl);">👥</span>
           </div>
           <div class="card__body">
@@ -108,8 +103,8 @@
           </div>
         </a>
         
-        <a href="gallery/" class="card" style="text-decoration: none;">
-          <div class="card__image" style="background: linear-gradient(135deg, #3182ce, #4299e1); display: flex; align-items: center; justify-content: center;">
+        <a href="gallery.html" class="card" style="text-decoration: none;">
+          <div class="card__image" style="background: linear-gradient(135deg, #d4373c, #ff4757); display: flex; align-items: center; justify-content: center;">
             <span style="font-size: var(--text-5xl);">📸</span>
           </div>
           <div class="card__body">
@@ -118,8 +113,8 @@
           </div>
         </a>
         
-        <a href="datasets/" class="card" style="text-decoration: none;">
-          <div class="card__image" style="background: linear-gradient(135deg, #4299e1, #63b3ed); display: flex; align-items: center; justify-content: center;">
+        <a href="datasets.html" class="card" style="text-decoration: none;">
+          <div class="card__image" style="background: linear-gradient(135deg, #e63950, #c41e3a); display: flex; align-items: center; justify-content: center;">
             <span style="font-size: var(--text-5xl);">💾</span>
           </div>
           <div class="card__body">
@@ -138,7 +133,7 @@
       <p style="max-width: 600px; margin: 0 auto var(--space-8); opacity: 0.9;">
         We are always looking for motivated students interested in HPC, storage systems, and machine learning for systems.
       </p>
-      <a href="about/#join" class="btn btn--primary btn--lg">
+      <a href="about.html#join" class="btn btn--lg" style="background: white; color: var(--color-primary);">
         Get in Touch
       </a>
     </div>
@@ -157,7 +152,33 @@
     
     // Initialize hero scroll effect
     initHeroScroll();
+
+    // News data
+    const NEWS_DATA = [
+      { date: "June 2025", content: "STELLAR is accepted by SC'25. Congrats, Chris Egersdoerfer on his first SC paper! Welcome to the club." },
+      { date: "June 2025", content: "SpGEMM paper is accepted by SC'25. Congrats, Abdullah Al Raqibul Islam on his second SC paper!" },
+      { date: "Mar 2025", content: "DAIL is accepted by CCGRID'25. Congrats Md. Hasanur Rashid!" },
+      { date: "Jan 2025", content: "Three papers are accepted by IPDPS 2025. See you all in Milano, Italy!" },
+      { date: "Nov 2024", content: "Abdullah Al Raqibul Islam just won the 3rd place of ACM Student Research Competition - Graduates at SC24! Big Congrats!" },
+      { date: "Oct 2024", content: "QualityNet is accepted by BigData'24. Congrats to Khondoker Mirazul Mumenin." },
+      { date: "Sept 2024", content: "IOSense is accepted by PDSW'24. Congrats to Chris Egersdoerfer and Md. Hasanur Rashid." },
+      { date: "July 2024", content: "Dr. Dai will move to the University of Delaware, Department of Computer & Information Sciences." },
+      { date: "May 2024", content: "Abdullah Al Raqibul Islam will continue to intern at Lawrence Berkeley National Laboratory." },
+      { date: "May 2024", content: "ION is accepted by HotStorage'24. Congrats to Chris Egersdoerfer and Arnav Sareen." },
+      { date: "Feb 2024", content: "New Award! Thanks NSF for the new EAGER Award to explore automatic optimization for multi-tiered HPC storage system." },
+      { date: "Dec 2023", content: "Lumos is accepted by IPDPS'24. Congrats to Di Zhang and Monish Soundar Raj!" },
+      { date: "Sept 2023", content: "RLBackfilling is accepted by PMBS'23 at SC'23. Congrats to Elliot Kolker-Hicks and Di Zhang!" },
+      { date: "Jun 2023", content: "DGAP is accepted by SC'23. Big Congrats to Abdullah Al Raqibul Islam!" },
+      { date: "May 2023", content: "Congrats to Di Zhang for winning IPDPS'23 Ph.D. forum Outstanding Poster Award!" },
+      { date: "Mar 2023", content: "Congrats to Md. Hasanur Rashid for being selected as the Lead Student Volunteer at SC'23." },
+      { date: "Mar 2023", content: "Congrats to Abdullah Al Raqibul Islam and Di Zhang on their acceptances to the IPDPS'23 Ph.D. forum." },
+      { date: "Mar 2023", content: "Interns Abdullah Al Raqibul Islam and Md. Hasanur Rashid will be intern at Lawrence Berkeley National Laboratory; Di Zhang will be intern at Meta." },
+      { date: "Jan 2023", content: "FaultyRank is accepted by IPDPS'23. Congrats to Saisha Kamat and Abdullah Al Raqibul Islam!" },
+      { date: "Jan 2023", content: "Drill is accepted by IPDPS'23. Congrats to Di Zhang and Chris Egersdoerfer!" }
+    ];
+
+    // Initialize news ticker
+    initNewsTicker(NEWS_DATA);
   </script>
 </body>
 </html>
-

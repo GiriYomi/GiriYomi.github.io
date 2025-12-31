@@ -1,0 +1,39 @@
+[June. 2025] STELLAR is accepted by SC'25. Congrats, Chris Egersdoerfer on his first SC paper! Welcome to the club.
+
+[June. 2025] SpGEMM paper is accepted by SC'25. Congrats, Abdullah Al Raqibul Islam on his second SC paper!
+
+[Mar. 2025] DAIL is accepted by CCGRID'25. Congrats Md. Hasanur Rashid!
+
+[Jan. 2025] Three papers are accepted by IPDPS 2025, See you all in Milano, Italy!
+
+[Nov. 2024] Abdullah Al Raqibul Islam  just won the 3rd place of ACM Student Research Competition - Graduates at SC24! Big Congrats to him! See the poster here.
+
+[Oct. 2024] QualityNet is accepted by BigData'24. Congrats to Khondoker Mirazul Mumenin. This is the our first paper on data compression, collaborated with Dr. Sheng Di (ANL) and Dr. Jinzhen Wang (UNC-Charlotte). 
+
+[Sept. 2024] IOSense is accepted by PDSW'24. Congrats to Chris Egersdoerfer and Md. Hasanur Rashid. See you at SC'24 (Atlanta!)
+
+[July, 2024] Dr. Dai will move to the University of Delaware, Department of Computer & Information Sciences.
+
+[May. 2024] Abdullah Al Raqibul Islam will continue to intern at Lawrence Berkeley National Laboratory.
+
+[May. 2024] ION is accepted by HotStorage'24. Congrats to Chris Egersdoerfer and Arnav Sareen. Arnav is an undergraduate student and a member of UNC-Charlotte URI 2024 Spring Cohort.
+
+[Feb. 2024] New Award! Thanks NSF for the new EAGER Award to explore automatic optimization for multi-tiered HPC storage system.
+
+[Dec. 2023] Lumos is accepted by IPDPS'24. Congrats to Di Zhang and Monish Soundar Raj! Monish is an undergraduate student and a member of UNC-Charlotte URI 2023 Fall Cohort.
+
+[Sept. 2023] RLBackfilling is accepted by PMBS'23 at SC'23. Congrats to Elliot Kolker-Hicks and Di Zhang! Elliot is an undergraduate student and a member of UNC-Charlotte URI 2023 Spring Cohort.
+
+[Jun. 2023] DGAP is accepted by SC'23. Big Congrats to Abdullah Al Raqibul Islam!
+
+[May. 2023] Congrats to Di Zhang for winning IPDPS'23 Ph.D. forum Outstanding Poster Award!
+
+[Mar. 2023] Congrats to Md. Hasanur Rashid for being selected as the Lead Student Volunteer at SC'23.
+
+[Mar. 2023] Congrats to Abdullah Al Raqibul Islam and Di Zhang on their acceptances to the IPDPS'23 Ph.D. forum.
+
+[Mar. 2023] Interns Abdullah Al Raqibul Islam and Md. Hasanur Rashid will be intern at Lawrence Berkeley National Laboratory; Di Zhang will be intern at Meta. Congrats!
+
+[Jan. 2023] FaultyRank is accepted by IPDPS'23. Congrats to Saisha Kamat and Abdullah Al Raqibul Islam!
+
+[Jan. 2023] Drill is accepted by IPDPS'23. Congrats to Di Zhang and Chris Egersdoerfer!

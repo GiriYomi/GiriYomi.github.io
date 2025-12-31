@@ -5,8 +5,8 @@
  * HOW TO ADD A NEW PUBLICATION:
  * 1. Add a new object to the appropriate year array below
  * 2. Required fields: id, title, authors, venue, year
- * 3. Optional fields: doi, pdf, code, slides, talk, abstract, figure, type
- * 4. For authors: wrap student names in ** to indicate mentored students (e.g., "**Chris Egersdoerfer**")
+ * 3. Optional fields: doi, pdf, code, slides, talk, abstract, figure, type, note
+ * 4. For authors: wrap student names in ** to indicate mentored students
  * 
  * NOTE: Do NOT fabricate abstract, figure, or links that don't exist. Leave them undefined.
  */
@@ -18,13 +18,121 @@ const PUBLICATIONS = {
       title: "RL4Sys: A Lightweight System-driven RL Framework for Drop-in Integration in System Optimization",
       authors: "**Jiaxin Dong**, **Md Hasanur Rashid**, Helen Xu, Dong Dai",
       venue: "PDSW'25",
-      venueUrl: "https://www.pdsw.org",
       year: 2025,
       type: "workshop"
+    },
+    {
+      id: "pdsw25-llmtailor",
+      title: "LLMTailor: A Layer-wise Tailoring Tool for Efficient Checkpointing of Large Language Models",
+      authors: "**Minqiu Sun**, Xin Huang, Luanzheng Guo, Nathan R. Tallent, Kento Sato, Dong Dai",
+      venue: "PDSW'25",
+      year: 2025,
+      type: "workshop"
+    },
+    {
+      id: "sc25-stellar",
+      title: "STELLAR: Storage Tuning Engine Leveraging LLM Autonomous Reasoning for High Performance Parallel File Systems",
+      authors: "**Chris Egersdoerfer**, Philip Carns, Shane Snyder, Robert Ross, Dong Dai",
+      venue: "SC'25",
+      year: 2025,
+      type: "conference",
+      note: "Acceptance rate: 21.2%"
+    },
+    {
+      id: "sc25-spgemm",
+      title: "Improving SpGEMM Performance Through Matrix-Reordering and Cluster-wise Computation",
+      authors: "**Abdullah Al Raqibul Islam**, Helen Xu, Dong Dai, Aydin Buluç",
+      venue: "SC'25",
+      year: 2025,
+      type: "conference",
+      note: "Acceptance rate: 21.2%"
+    },
+    {
+      id: "hpdc25-tsue",
+      title: "TSUE: A Two-Stage Data Update Method for an Erasure Coded Cluster File System",
+      authors: "Zheng Wei, Jing Xing, Yida Gu, Wenjing Huang, Dong Dai, Guangmin Tan, Dingwen Tao",
+      venue: "HPDC'25",
+      year: 2025,
+      type: "conference",
+      note: "Acceptance rate: 19%"
+    },
+    {
+      id: "ccgrid25-dial",
+      title: "DIAL: Decentralized I/O AutoTuning via Learned Client-side Local Metrics for Parallel File System",
+      authors: "**Md Hasanur Rashid**, Xinyi Li, Youbiao He, Forrest Sheng Bao, Dong Dai",
+      venue: "CCGrid'25",
+      year: 2025,
+      type: "conference",
+      note: "Acceptance rate: 28%"
+    },
+    {
+      id: "ipdps25-ioagent",
+      title: "IOAgent: Democratizing Trustworthy HPC I/O Performance Diagnosis Capability via LLMs",
+      authors: "**Chris Egersdoerfer**, Arnav Sareen, Jean Luca Bez, Suren Byna, Dongkuan (DK) Xu, Dong Dai",
+      venue: "IPDPS'25",
+      year: 2025,
+      type: "conference"
+    },
+    {
+      id: "ipdps25-metadata",
+      title: "Be Aware of Metadata Corruption in Parallel File System: It Can Be Silent and Catastrophic",
+      authors: "**Saisha Kamat**, Mai Zheng, Bo Fang, Dong Dai",
+      venue: "IPDPS'25",
+      year: 2025,
+      type: "conference"
+    },
+    {
+      id: "ipdps25-adaptbf",
+      title: "AdapTBF: Decentralized Bandwidth Control via Adaptive Token Borrowing for HPC Storage",
+      authors: "**Md. Hasanur Rashid**, Dong Dai",
+      venue: "IPDPS'25",
+      year: 2025,
+      type: "conference"
     }
   ],
 
   2024: [
+    {
+      id: "bigdata24-qualitynet",
+      title: "QualityNet: Error-bounded Lossy Compression Quality Prediction via Deep Surrogate",
+      authors: "**Khondoker Mirazul Mumenin**, Dong Dai, Jinzhen Wang, Sheng Di",
+      venue: "BigData'24",
+      year: 2024,
+      type: "conference",
+      note: "Acceptance rate: 18.8%"
+    },
+    {
+      id: "pdsw24-iosense",
+      title: "Understanding and Predicting Cross-Application I/O Interference in HPC Storage Systems",
+      authors: "**Chris Egersdoerfer**, **Md. Hasanur Rashid**, Dong Dai, Bo Fang, Tallent Nathan",
+      venue: "PDSW'24",
+      year: 2024,
+      type: "workshop"
+    },
+    {
+      id: "hotstorage24-ion",
+      title: "ION: Navigating HPC I/O Optimization Journey using Large Language Models",
+      authors: "**Chris Egersdoerfer**, Arnav Sareen, Jean Luca Bez, Suren Byna, Dong Dai",
+      venue: "HotStorage'24",
+      year: 2024,
+      type: "workshop"
+    },
+    {
+      id: "jsspp24-synthetic",
+      title: "An Empirical Study of Machine Learning-based Synthetic Job Trace Generation Methods",
+      authors: "Monish Soundar Raj, Thomas MacDougall, **Di Zhang**, Dong Dai",
+      venue: "JSSPP@IPDPS'24",
+      year: 2024,
+      type: "workshop"
+    },
+    {
+      id: "ipdps24-cross-system",
+      title: "Cross-System Analysis of Job Characterization and Scheduling in Large-Scale Computing Clusters",
+      authors: "**Di Zhang**, Monish Soundar Raj, Bing Xie, Sheng Di, Dong Dai",
+      venue: "IPDPS'24",
+      year: 2024,
+      type: "conference"
+    },
     {
       id: "tpds24-provio",
       title: "PROV-IO: A Cross-Platform Provenance Framework for Scientific Data on HPC Systems",
@@ -32,7 +140,8 @@ const PUBLICATIONS = {
       venue: "TPDS'24",
       year: 2024,
       type: "journal",
-      doi: "10.1109/TPDS.2024.3374555"
+      doi: "10.1109/TPDS.2024.3374555",
+      note: "Journal CORE Ranking A*"
     }
   ],
 
@@ -43,7 +152,8 @@ const PUBLICATIONS = {
       authors: "**Abdullah Al Raqibul Islam**, Dong Dai",
       venue: "SC'23",
       year: 2023,
-      type: "conference"
+      type: "conference",
+      note: "Acceptance rate: 23%"
     },
     {
       id: "pmbs23-backfilling",
@@ -59,7 +169,8 @@ const PUBLICATIONS = {
       authors: "**Di Zhang**, **Chris Egersdoerfer**, Tabassum Mahmud, Mai Zheng, Dong Dai",
       venue: "IPDPS'23",
       year: 2023,
-      type: "conference"
+      type: "conference",
+      note: "Acceptance rate: 26%"
     },
     {
       id: "ipdps23-faultyrank",
@@ -67,7 +178,8 @@ const PUBLICATIONS = {
       authors: "**Saisha Kamat**, **Abdullah Al Raqibul Islam**, Mai Zheng, Dong Dai",
       venue: "IPDPS'23",
       year: 2023,
-      type: "conference"
+      type: "conference",
+      note: "Acceptance rate: 26%"
     }
   ],
 
@@ -86,7 +198,8 @@ const PUBLICATIONS = {
       authors: "**Di Zhang**, Dong Dai, Bing Xie",
       venue: "HPDC'22",
       year: 2022,
-      type: "conference"
+      type: "conference",
+      note: "Acceptance rate: 19%"
     },
     {
       id: "ccgrid22-vcsr",
@@ -94,7 +207,8 @@ const PUBLICATIONS = {
       authors: "**Abdullah Al Raqibul Islam**, Dong Dai, Dazhao Cheng",
       venue: "CCGrid'22",
       year: 2022,
-      type: "conference"
+      type: "conference",
+      note: "Acceptance rate: 28%"
     },
     {
       id: "thpc22-optane",
@@ -142,7 +256,8 @@ const PUBLICATIONS = {
       venue: "JPDC'21",
       year: 2021,
       type: "journal",
-      doi: "10.1016/j.jpdc.2020.08.005"
+      doi: "10.1016/j.jpdc.2020.08.005",
+      note: "Journal CORE Ranking A"
     }
   ],
 
@@ -153,7 +268,8 @@ const PUBLICATIONS = {
       authors: "**Di Zhang**, Dong Dai, Youbiao He, Forrest Sheng Bao, Bing Xie",
       venue: "SC'20",
       year: 2020,
-      type: "conference"
+      type: "conference",
+      note: "Acceptance rate: 22%"
     },
     {
       id: "msst20-optane",
@@ -161,7 +277,8 @@ const PUBLICATIONS = {
       authors: "**Abdullah Al Raqibul Islam**, Anirudh Narayanan, **Christopher York**, Dong Dai",
       venue: "MSST'20",
       year: 2020,
-      type: "conference"
+      type: "conference",
+      note: "Acceptance rate: 29%"
     }
   ],
 
@@ -172,7 +289,8 @@ const PUBLICATIONS = {
       authors: "Dong Dai, Om Rameshwar Gatla, Mai Zheng",
       venue: "MSST'19",
       year: 2019,
-      type: "conference"
+      type: "conference",
+      note: "Acceptance rate: 29%"
     },
     {
       id: "tc19-prs",
@@ -181,7 +299,8 @@ const PUBLICATIONS = {
       venue: "TC'19",
       year: 2019,
       type: "journal",
-      doi: "10.1109/TC.2019.2954089"
+      doi: "10.1109/TC.2019.2954089",
+      note: "Journal CORE Ranking A*"
     }
   ],
 
@@ -192,7 +311,8 @@ const PUBLICATIONS = {
       authors: "Jinrui Cao, Om Rameshwar Gatla, Mai Zheng, Dong Dai, Vidya Eswarappa, Yan Mu, Yong Chen",
       venue: "ICS'18",
       year: 2018,
-      type: "conference"
+      type: "conference",
+      note: "Acceptance rate: 19%"
     },
     {
       id: "ccgrid18-akin",
@@ -200,7 +320,8 @@ const PUBLICATIONS = {
       authors: "Wei Zhang, Dong Dai, Yong Chen",
       venue: "CCGrid'18",
       year: 2018,
-      type: "conference"
+      type: "conference",
+      note: "Acceptance rate: 21%"
     },
     {
       id: "cloud18-io",
@@ -208,7 +329,8 @@ const PUBLICATIONS = {
       authors: "Jiang Zhou, Dong Dai, Yu Mao, Xin Chen, Yu Zhuang, Yong Chen",
       venue: "CLOUD'18",
       year: 2018,
-      type: "conference"
+      type: "conference",
+      note: "Acceptance rate: 21%"
     },
     {
       id: "tpds18-metadata",
@@ -216,7 +338,9 @@ const PUBLICATIONS = {
       authors: "Dong Dai, Yong Chen, Philip Carns, John Jenkins, Wei Zhang, Robert Ross",
       venue: "TPDS'18",
       year: 2018,
-      type: "journal"
+      type: "journal",
+      doi: "10.1109/TPDS.2018.2887380",
+      note: "Journal CORE Ranking A*"
     },
     {
       id: "tcc18-trigger",
@@ -224,15 +348,17 @@ const PUBLICATIONS = {
       authors: "Dong Dai, Yong Chen, Dries Kimpe, Robert Ross",
       venue: "TCC'18",
       year: 2018,
-      type: "journal"
+      type: "journal",
+      doi: "10.1109/TCC.2018.2830348"
     },
     {
       id: "jpdc18-vectorizing",
       title: "Vectorizing Disk Blocks for Efficient Storage Systems via Deep Learning",
       authors: "Dong Dai, Forrest Sheng Bao, Jiang Zhou, Xuanhua Shi, Yong Chen",
-      venue: "JPDC'18",
+      venue: "ParCo'18",
       year: 2018,
-      type: "journal"
+      type: "journal",
+      doi: "10.1016/j.parco.2018.03.003"
     }
   ],
 
@@ -243,7 +369,8 @@ const PUBLICATIONS = {
       authors: "Dong Dai, Yong Chen, Philip Carns, John Jenkins, Robert Ross",
       venue: "PACT'17",
       year: 2017,
-      type: "conference"
+      type: "conference",
+      note: "Acceptance rate: 23%"
     },
     {
       id: "hpdc17-iogp",
@@ -251,7 +378,95 @@ const PUBLICATIONS = {
       authors: "Dong Dai, Wei Zhang, Yong Chen",
       venue: "HPDC'17",
       year: 2017,
-      type: "conference"
+      type: "conference",
+      note: "Acceptance rate: 19%"
+    },
+    {
+      id: "ccgrid17-prs",
+      title: "Pattern-Directed Replication Scheme for Heterogeneous Object-based Storage",
+      authors: "Jiang Zhou, Wei Xie, Dong Dai, Yong Chen",
+      venue: "CCGrid'17",
+      year: 2017,
+      type: "conference",
+      note: "Acceptance rate: 23%"
+    }
+  ],
+
+  2016: [
+    {
+      id: "cluster16-graphmeta",
+      title: "GraphMeta: A Graph-based Engine for Managing Large-Scale HPC Rich Metadata",
+      authors: "Dong Dai, Yong Chen, Phil Carns, John Jenkins, Wei Zhang, Robert Ross",
+      venue: "CLUSTER'16",
+      year: 2016,
+      type: "conference",
+      note: "Acceptance rate: 24%"
+    },
+    {
+      id: "pdsw16-testing",
+      title: "A Generic Framework for Testing Parallel File Systems",
+      authors: "Jinrui Cao, Simeng Wang, Dong Dai, Mai Zheng, Yong Chen",
+      venue: "PDSW-DISCS'16",
+      year: 2016,
+      type: "workshop"
+    },
+    {
+      id: "icpp16-block2vec",
+      title: "Block2Vec: A Deep Learning Strategy on Mining Block Correlations in Storage Systems",
+      authors: "Dong Dai, Forrest Sheng Bao, Jiang Zhou, Yong Chen",
+      venue: "P2S2@ICPP'16",
+      year: 2016,
+      type: "workshop"
+    },
+    {
+      id: "parco16-traversal",
+      title: "An Asynchronous Traversal Engine for Graph-Based Rich Metadata Management",
+      authors: "Dong Dai, Phil Carns, Robert Ross, John Jenkins, Nicholas Muirhead, Yong Chen",
+      venue: "ParCo'16",
+      year: 2016,
+      type: "journal",
+      doi: "10.1016/j.parco.2016.06.002"
+    }
+  ],
+
+  2015: [
+    {
+      id: "cluster15-graphtrek",
+      title: "GraphTrek: Asynchronous Graph Traversal for Property Graph Based Metadata Management",
+      authors: "Dong Dai, Phil Carns, Robert Ross, John Jenkins, Kyle Blauer, Yong Chen",
+      venue: "CLUSTER'15",
+      year: 2015,
+      type: "conference",
+      note: "Acceptance rate: 24%"
+    }
+  ],
+
+  2014: [
+    {
+      id: "sc14-randomized",
+      title: "Two-Choice Randomized Dynamic I/O Scheduler for Object Storage Systems",
+      authors: "Dong Dai, Yong Chen, Dries Kimpe, Robert Ross",
+      venue: "SC'14",
+      year: 2014,
+      type: "conference",
+      note: "Acceptance rate: 21%"
+    },
+    {
+      id: "bigdata14-provenance",
+      title: "Provenance-Based Object Storage Prediction Scheme for Scientific Big Data Applications",
+      authors: "Dong Dai, Yong Chen, Dries Kimpe, Robert Ross",
+      venue: "BigData'14",
+      year: 2014,
+      type: "conference",
+      note: "Acceptance rate: 19%"
+    },
+    {
+      id: "pdsw14-property",
+      title: "Using Property Graphs for Rich Metadata Management in HPC Systems",
+      authors: "Dong Dai, Robert Ross, Philip Carns, Dries Kimpe, Yong Chen",
+      venue: "PDSW'14",
+      year: 2014,
+      type: "workshop"
     }
   ]
 };
@@ -288,4 +503,3 @@ function formatAuthors(authorString) {
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { PUBLICATIONS, getAllPublications, getPublicationsByYear, formatAuthors };
 }
-

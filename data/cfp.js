@@ -390,3 +390,4 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports = { URL_DICTIONARY, CFP_DATA, getVenueUrl, getTierClass };
 }
 
+
