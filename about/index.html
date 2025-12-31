@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About DIRLab - Contact information and how to join the Data Intelligence Research Lab at University of Delaware.">
+  <title>About | DIRLab</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-8);
+      margin-bottom: var(--space-16);
+    }
+    .contact-card {
+      padding: var(--space-8);
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+    .contact-card__icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-4);
+    }
+    .contact-card__title {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-2);
+    }
+    .contact-card__content {
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      line-height: var(--leading-relaxed);
+    }
+    .contact-card__content a {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+    .join-section {
+      background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+      border-radius: var(--radius-xl);
+      padding: var(--space-12);
+      text-align: center;
+      color: var(--color-text-inverse);
+    }
+    .join-section h2 {
+      color: white;
+      margin-bottom: var(--space-4);
+    }
+    .join-section p {
+      max-width: 600px;
+      margin: 0 auto var(--space-8);
+      opacity: 0.9;
+    }
+    .join-section .btn {
+      font-size: var(--text-lg);
+      padding: var(--space-4) var(--space-10);
+    }
+    .research-areas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+    }
+    .research-area {
+      padding: var(--space-6);
+      background: rgba(255,255,255,0.1);
+      border-radius: var(--radius-md);
+      text-align: left;
+    }
+    .research-area h4 {
+      color: white;
+      font-size: var(--text-base);
+      margin-bottom: var(--space-2);
+    }
+    .research-area p {
+      font-size: var(--text-sm);
+      margin: 0;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar" id="navbar"></header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">About DIRLab</h1>
+      <p class="page-header__subtitle">
+        Data Intelligence Research Lab at the University of Delaware
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="section">
+    <div class="container">
+      <!-- About Section -->
+      <div style="max-width: 800px; margin: 0 auto var(--space-16);">
+        <h2 style="margin-bottom: var(--space-6);">Our Mission</h2>
+        <p class="text-lg" style="color: var(--color-text-muted); line-height: var(--leading-relaxed);">
+          We develop innovative solutions to enhance the performance and reliability of data-intensive infrastructure. 
+          Our research focuses on high-performance computing systems, storage optimization, and intelligent resource management.
+        </p>
+        <p style="color: var(--color-text-muted); line-height: var(--leading-relaxed);">
+          DIRLab is directed by Dr. Dong Dai, Associate Professor in the Department of Computer & Information Sciences 
+          at the University of Delaware. Our team includes PhD students, master's students, and undergraduate researchers 
+          working on cutting-edge problems in systems research.
+        </p>
+      </div>
+
+      <!-- Contact Information -->
+      <h2 style="margin-bottom: var(--space-8);">Contact</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-card__icon">📧</div>
+          <h4 class="contact-card__title">Email</h4>
+          <div class="contact-card__content">
+            <p>For general inquiries:</p>
+            <p><a href="mailto:dai@udel.edu">dai@udel.edu</a></p>
+          </div>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-card__icon">📍</div>
+          <h4 class="contact-card__title">Location</h4>
+          <div class="contact-card__content">
+            <p>Fintech 416B</p>
+            <p>University of Delaware</p>
+            <p>Newark, DE</p>
+          </div>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-card__icon">📞</div>
+          <h4 class="contact-card__title">Phone</h4>
+          <div class="contact-card__content">
+            <p>302-831-0890</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Join Us Section -->
+      <section class="join-section" id="join">
+        <h2>Join Us Today</h2>
+        <p>
+          We are always looking for motivated students and researchers interested in 
+          high-performance computing, storage systems, and machine learning for systems.
+        </p>
+        
+        <div class="research-areas">
+          <div class="research-area">
+            <h4>🔬 HPC Systems</h4>
+            <p>Parallel file systems, metadata management, I/O optimization</p>
+          </div>
+          <div class="research-area">
+            <h4>🧠 ML for Systems</h4>
+            <p>Reinforcement learning for scheduling, anomaly detection</p>
+          </div>
+          <div class="research-area">
+            <h4>📊 Graph Storage</h4>
+            <p>Distributed graph databases, partitioning algorithms</p>
+          </div>
+          <div class="research-area">
+            <h4>💾 Storage Research</h4>
+            <p>Persistent memory, data provenance, reliability</p>
+          </div>
+        </div>
+        
+        <div style="margin-top: var(--space-10);">
+          <a href="#" class="btn btn--primary btn--lg" onclick="alert('Application form coming soon! Please email dai@udel.edu for now.'); return false;">
+            Apply Now
+          </a>
+          <p style="font-size: var(--text-sm); margin-top: var(--space-4); opacity: 0.7;">
+            Application form coming soon. For now, please email Dr. Dong Dai directly.
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer"></footer>
+
+  <!-- Scripts -->
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Initialize common components
+    initCommon('about');
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DIRLab Call for Papers - Upcoming deadlines for conferences and journals in HPC, systems, and databases.">
+  <title>Call for Papers | DIRLab</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <style>
+    .cfp-table {
+      font-size: var(--text-sm);
+    }
+    .cfp-table th:first-child,
+    .cfp-table td:first-child {
+      min-width: 180px;
+    }
+    .cfp-table td {
+      vertical-align: top;
+    }
+    .deadline-text {
+      white-space: pre-line;
+      line-height: 1.6;
+    }
+    .venue-link {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+    .venue-link:hover {
+      color: var(--color-accent);
+    }
+    .tier-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: var(--text-xs);
+    }
+    .expired {
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar" id="navbar"></header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">Call for Papers</h1>
+      <p class="page-header__subtitle">
+        Upcoming submission deadlines for conferences and journals in systems research
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="section">
+    <div class="container container--wide">
+      <!-- Filters -->
+      <div class="search-bar" style="margin-bottom: var(--space-8);">
+        <div class="filter-group">
+          <button class="filter-btn active" data-tier="all">All Tiers</button>
+          <button class="filter-btn" data-tier="A*">A* Only</button>
+          <button class="filter-btn" data-tier="A">A & A*</button>
+        </div>
+      </div>
+
+      <!-- CFP Table -->
+      <div class="table-wrapper">
+        <table class="table cfp-table">
+          <thead>
+            <tr>
+              <th>Venue</th>
+              <th>Deadlines</th>
+              <th>Conference</th>
+              <th>Tier</th>
+            </tr>
+          </thead>
+          <tbody id="cfp-body"></tbody>
+        </table>
+      </div>
+
+      <p class="text-muted text-sm" style="margin-top: var(--space-6);">
+        <strong>Note:</strong> Deadlines are subject to change. Always verify with the official conference website.
+        <br>Tier ratings based on CORE/CSRankings classifications.
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer"></footer>
+
+  <!-- Scripts -->
+  <script src="../data/cfp.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Initialize common components
+    initCommon('cfp');
+
+    let currentTierFilter = 'all';
+
+    // Render CFP table
+    function renderCFPTable() {
+      const tbody = document.getElementById('cfp-body');
+      
+      let filtered = CFP_DATA;
+      
+      if (currentTierFilter === 'A*') {
+        filtered = filtered.filter(item => item.tier === 'A*');
+      } else if (currentTierFilter === 'A') {
+        filtered = filtered.filter(item => item.tier === 'A*' || item.tier === 'A');
+      }
+      
+      tbody.innerHTML = filtered.map(item => {
+        const url = getVenueUrl(item.urlKey);
+        const venueHtml = url 
+          ? `<a href="${url}" target="_blank" rel="noopener" class="venue-link">${item.venue}</a>`
+          : item.venue;
+        
+        const tierClass = getTierClass(item.tier);
+        const tierHtml = item.tier 
+          ? `<span class="tag ${tierClass}">${item.tier}</span>`
+          : '<span class="text-muted">—</span>';
+        
+        return `
+          <tr>
+            <td><strong>${venueHtml}</strong></td>
+            <td class="deadline-text">${item.deadlines}</td>
+            <td>${item.conference}</td>
+            <td>${tierHtml}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // Initialize filters
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentTierFilter = btn.dataset.tier;
+        renderCFPTable();
+      });
+    });
+
+    // Initial render
+    renderCFPTable();
+  </script>
+</body>
+</html>
+

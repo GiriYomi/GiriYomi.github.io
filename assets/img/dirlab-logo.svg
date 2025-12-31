@@ -1,0 +1,24 @@
+<svg width="400" height="120" viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main text -->
+  <text x="20" y="80" font-family="Outfit, sans-serif" font-size="72" font-weight="800" fill="url(#logoGradient)">
+    DIRLab
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="22" y="105" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="500" fill="rgba(255,255,255,0.7)" letter-spacing="0.1em">
+    DATA INTELLIGENCE RESEARCH LAB
+  </text>
+  
+  <!-- Decorative element -->
+  <rect x="280" y="35" width="8" height="50" rx="4" fill="#ed8936"/>
+  <rect x="295" y="45" width="8" height="40" rx="4" fill="#ed8936" opacity="0.7"/>
+  <rect x="310" y="55" width="8" height="30" rx="4" fill="#ed8936" opacity="0.4"/>
+</svg>
+

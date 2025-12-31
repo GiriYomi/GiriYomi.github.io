@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DIRLab Gallery - Photos from conferences, lab activities, and memorable moments.">
+  <title>Gallery | DIRLab</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar" id="navbar"></header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">Gallery</h1>
+      <p class="page-header__subtitle">
+        Memories from conferences, lab activities, and celebrations
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="section">
+    <div class="container">
+      <!-- Conferences Section -->
+      <section style="margin-bottom: var(--space-16);">
+        <h2 style="margin-bottom: var(--space-8);">Conferences</h2>
+        <div class="gallery-grid" id="conferences-grid"></div>
+      </section>
+
+      <!-- Activities Section -->
+      <section>
+        <h2 style="margin-bottom: var(--space-8);">Lab Activities</h2>
+        <div class="gallery-grid" id="activities-grid"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer"></footer>
+
+  <!-- Scripts -->
+  <script src="../data/gallery.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Initialize common components
+    initCommon('gallery');
+
+    // Render gallery card
+    function renderGalleryCard(album) {
+      const coverHtml = album.cover 
+        ? `<img src="../assets/img/gallery/${album.id}/${album.cover}" alt="${album.title}">`
+        : `<span>📸</span>`;
+      
+      const hasPhotos = album.photos && album.photos.length > 0;
+      const photoCount = hasPhotos ? `${album.photos.length} photos` : 'Photos coming soon';
+      
+      return `
+        <a href="${album.id}.html" class="gallery-card" style="text-decoration: none;">
+          <div class="gallery-card__image">
+            ${coverHtml}
+          </div>
+          <div class="gallery-card__body">
+            <h4 class="gallery-card__title">${album.title}</h4>
+            <p class="gallery-card__meta">
+              ${album.date || album.year}
+              ${album.location ? ` · ${album.location}` : ''}
+              <br><span class="text-muted">${photoCount}</span>
+            </p>
+          </div>
+        </a>
+      `;
+    }
+
+    // Render galleries
+    function renderGalleryGrid(containerId, albums) {
+      const container = document.getElementById(containerId);
+      
+      if (albums.length === 0) {
+        container.innerHTML = `
+          <div class="placeholder" style="grid-column: 1 / -1;">
+            <div class="placeholder__icon">📸</div>
+            <p class="placeholder__text">Albums coming soon</p>
+          </div>
+        `;
+        return;
+      }
+      
+      container.innerHTML = albums.map(renderGalleryCard).join('');
+    }
+
+    // Initialize
+    renderGalleryGrid('conferences-grid', GALLERY.conferences);
+    renderGalleryGrid('activities-grid', GALLERY.activities);
+  </script>
+</body>
+</html>
+

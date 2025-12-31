@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DIRLab Datasets - Open datasets for HPC and systems research including synthetic job traces.">
+  <title>Datasets | DIRLab</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <style>
+    .dataset-section {
+      margin-bottom: var(--space-12);
+    }
+    .dataset-card {
+      padding: var(--space-8);
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      margin-bottom: var(--space-6);
+    }
+    .dataset-card__header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
+    .dataset-card__title {
+      font-size: var(--text-xl);
+      margin: 0;
+    }
+    .dataset-card__source {
+      display: flex;
+      gap: var(--space-2);
+      flex-shrink: 0;
+    }
+    .dataset-card__description {
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-6);
+      line-height: var(--leading-relaxed);
+    }
+    .dataset-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-3);
+    }
+    .dataset-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-4);
+      background: var(--color-border-light);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      transition: all var(--transition-fast);
+    }
+    .dataset-item:hover {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+    }
+    .dataset-item::before {
+      content: '📁';
+    }
+    .dataset-item--tbd {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .dataset-item--tbd:hover {
+      background: var(--color-border-light);
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar" id="navbar"></header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">Datasets</h1>
+      <p class="page-header__subtitle">
+        Open datasets from our research for the HPC and systems community
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="section">
+    <div class="container">
+      <!-- Job Traces Section -->
+      <section class="dataset-section">
+        <h2 style="margin-bottom: var(--space-6);">Job Traces</h2>
+        
+        <!-- Synthetic Job Traces -->
+        <div class="dataset-card">
+          <div class="dataset-card__header">
+            <h3 class="dataset-card__title">Synthetic Job Traces (JSSPP'24)</h3>
+            <div class="dataset-card__source">
+              <a href="#" class="btn btn--sm btn--outline" onclick="alert('GitHub link TBD'); return false;">GitHub</a>
+              <a href="#" class="btn btn--sm btn--outline" onclick="alert('Paper link TBD'); return false;">Paper</a>
+            </div>
+          </div>
+          <p class="dataset-card__description">
+            Synthetic job trace datasets generated using machine learning methods (TVAE and CTGAN). 
+            These traces are designed to help researchers study HPC scheduling and resource management 
+            without requiring access to proprietary production traces.
+          </p>
+          
+          <h4 style="font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-3);">
+            Available Datasets:
+          </h4>
+          <div class="dataset-list">
+            <a href="#" class="dataset-item" onclick="alert('Download link TBD'); return false;">Blue Waters TVAE-15K</a>
+            <a href="#" class="dataset-item" onclick="alert('Download link TBD'); return false;">Blue Waters CTGAN-15K</a>
+            <a href="#" class="dataset-item" onclick="alert('Download link TBD'); return false;">Theta TVAE-15K</a>
+            <a href="#" class="dataset-item" onclick="alert('Download link TBD'); return false;">Theta CTGAN-15K</a>
+            <a href="#" class="dataset-item" onclick="alert('Download link TBD'); return false;">Helios TVAE-15K</a>
+            <a href="#" class="dataset-item" onclick="alert('Download link TBD'); return false;">Helios CTGAN-15K</a>
+            <a href="#" class="dataset-item" onclick="alert('Download link TBD'); return false;">Philly TVAE-15K</a>
+            <a href="#" class="dataset-item" onclick="alert('Download link TBD'); return false;">Philly CTGAN-15K</a>
+          </div>
+        </div>
+        
+        <!-- Real Job Traces -->
+        <div class="dataset-card">
+          <div class="dataset-card__header">
+            <h3 class="dataset-card__title">Real Job Traces</h3>
+          </div>
+          <p class="dataset-card__description">
+            Production job traces from real HPC systems. Coming soon.
+          </p>
+          <div class="placeholder" style="padding: var(--space-6);">
+            <p class="placeholder__text">TBA</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Other Datasets Section -->
+      <section class="dataset-section">
+        <h2 style="margin-bottom: var(--space-6);">Other Datasets</h2>
+        <div class="placeholder">
+          <div class="placeholder__icon">📊</div>
+          <p class="placeholder__text">More datasets coming soon</p>
+          <p class="text-muted text-sm" style="margin-top: var(--space-2);">
+            Check back for additional datasets from our research.
+          </p>
+        </div>
+      </section>
+
+      <!-- Citation Notice -->
+      <div style="background: var(--color-border-light); padding: var(--space-6); border-radius: var(--radius-lg); margin-top: var(--space-8);">
+        <h4 style="margin-bottom: var(--space-2);">Citation</h4>
+        <p class="text-sm text-muted">
+          If you use our datasets in your research, please cite the corresponding paper. 
+          Citation information is provided on each dataset's GitHub page.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer"></footer>
+
+  <!-- Scripts -->
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Initialize common components
+    initCommon('datasets');
+  </script>
+</body>
+</html>
+

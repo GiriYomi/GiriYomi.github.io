@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Minqiu Sun - Ph.D. Student at DIRLab, University of Delaware">
+  <title>Minqiu Sun | DIRLab</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <style>
+    .profile-header {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: var(--space-10);
+      margin-bottom: var(--space-12);
+    }
+    .profile-avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-5xl);
+      font-weight: 700;
+      color: var(--color-text-inverse);
+      overflow: hidden;
+    }
+    .profile-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .profile-info h1 {
+      margin-bottom: var(--space-2);
+    }
+    .profile-role {
+      font-size: var(--text-lg);
+      color: var(--color-primary);
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+    }
+    .profile-bio {
+      color: var(--color-text-muted);
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-6);
+    }
+    .profile-contact {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+    .profile-contact span {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      margin-bottom: var(--space-4);
+      transition: color var(--transition-fast);
+    }
+    .back-link:hover {
+      color: var(--color-primary);
+    }
+    @media (max-width: 640px) {
+      .profile-header {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .profile-avatar {
+        margin: 0 auto;
+      }
+      .profile-contact {
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar" id="navbar"></header>
+
+  <section class="page-header">
+    <div class="container">
+      <a href="index.html" class="back-link">← Back to People</a>
+      <h1 class="page-header__title">Minqiu Sun</h1>
+      <p class="page-header__subtitle">Ph.D. Student</p>
+    </div>
+  </section>
+
+  <main class="section">
+    <div class="container container--narrow">
+      <div class="profile-header">
+        <div class="profile-avatar">
+          MS
+        </div>
+        <div class="profile-info">
+          <h1>Minqiu Sun</h1>
+          <p class="profile-role">Ph.D. Student · DIRLab</p>
+          <p class="profile-bio">
+            Ph.D. student at University of Delaware in DIRLab. 
+            Bachelor degrees from Nanjing University of Information Science and Technology (NUIST) 
+            and University of Reading (UoR).
+          </p>
+          <div class="profile-contact">
+            <span>📧 mqsun@udel.edu</span>
+            <span>📞 302-610-9178</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publications Section -->
+      <section style="margin-top: var(--space-12);">
+        <h2 style="margin-bottom: var(--space-6);">Publications</h2>
+        <div class="placeholder" style="padding: var(--space-6);">
+          <p class="placeholder__text">Publications coming soon</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>initCommon('people');</script>
+</body>
+</html>
+

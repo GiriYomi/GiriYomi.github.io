@@ -1,0 +1,429 @@
+DIRLab (University of Delaware) Website — Structured Information Dump
+Collected on: 2025-12-30
+Primary source: https://sites.google.com/udel.edu/dirlab/home
+
+======================================================================
+MIGRATION CONSTRAINTS (READ FIRST — DO NOT HALLUCINATE)
+Purpose:
+- This TXT is the SINGLE source of truth for facts used on the new DIRLab website.
+- Any information not explicitly present here (or in the CFP CSV) must NOT be invented.
+
+Language:
+- The new website MUST be ENGLISH ONLY. No bilingual/i18n content.
+
+No-hallucination / data policy:
+- Allowed facts: ONLY what appears in this file and in `temp/dirlab-Call-For-Papers - Sheet1.csv`.
+- Forbidden: inventing people bios, research interests, project/tool descriptions, publication abstracts, paper figures, external links, or gallery photos that are not explicitly provided.
+- If a field is missing, the UI MUST show a clear placeholder (e.g., "TBD", "Coming soon", "Profile pending") instead of fabricated content.
+
+Site scope decisions (explicit):
+- Projects page: DO NOT create (no content available).
+- Tools page: DO NOT create (no content available).
+- Gallery photos: create placeholder album pages; photos will be added manually later, one page at a time.
+- "Join us" / application: no Google Form exists yet. Use a placeholder button/link that does not point to a real form (e.g., "#", or a dedicated placeholder page).
+
+Link whitelist (use ONLY these for Dong Dai unless more links are explicitly added here later):
+- LinkedIn: https://www.linkedin.com/in/dong-dai-9684092a/
+- Google Scholar: https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en
+- X (Twitter): https://x.com/daidong
+- DIRLab profile page: https://sites.google.com/udel.edu/dirlab/people/dong-dai
+
+CFP data source:
+- CFP table content is based on `temp/dirlab-Call-For-Papers - Sheet1.csv` (this TXT contains only a partial venue list).
+- CFP URLs (conference sites/submission links) must be manually maintained; do NOT guess missing URLs.
+
+NOTE:
+- This is meant to be a “Cursor-friendly” structured TXT. It lists each page, its URL, jump targets (internal/external links), and the most useful content extracted from the page text.
+- Some navigation items (“Projects”, “Tools”, “Datasets”) appear as top-level menu items but did not expose a standalone text page during extraction; their known subpage(s) are still listed.
+
+======================================================================
+主页 / Home
+URL: https://sites.google.com/udel.edu/dirlab/home
+
+可跳转到 (站内主要页面):
+- Call for Papers (CFP): https://sites.google.com/udel.edu/dirlab/cfp
+- Publications: https://sites.google.com/udel.edu/dirlab/publications
+- People: https://sites.google.com/udel.edu/dirlab/people
+  - Dong Dai: https://sites.google.com/udel.edu/dirlab/people/dong-dai
+  - Minqiu Sun: https://sites.google.com/udel.edu/dirlab/people/minqiu-sun
+  - Jiaxin Dong: https://sites.google.com/udel.edu/dirlab/people/jiaxin-dong
+- Datasets → Job Traces: https://sites.google.com/udel.edu/dirlab/datasets/job-traces
+- Gallery
+  - Conferences: https://sites.google.com/udel.edu/dirlab/gallery/conferences
+  - Activities: https://sites.google.com/udel.edu/dirlab/gallery/activities
+    - 12/19 2024: https://sites.google.com/udel.edu/dirlab/gallery/activities/1219-2024
+- URI (Undergraduate Research Internship / Undergraduate Research Initiative pages)
+  - 2023-Spring: https://sites.google.com/udel.edu/dirlab/uri/2023-spring
+  - 2023-Fall: https://sites.google.com/udel.edu/dirlab/uri/2023-fall
+  - 2024-Spring: https://sites.google.com/udel.edu/dirlab/uri/2024-spring
+
+主页内容 (关键信息):
+- Lab 名称: Data Intelligence Research Lab (DIRLab @ UDel)
+- 主页宣传语: “We develop innovative solutions to enhance the performance and reliability of data-intensive infrastructure”
+- News (主页可见至少一条):
+  - [June. 2025] “STELLAR is accepted by SC'25. Congrats, Chris Egersdoerfer on his first SC paper! Welcome to the club.”
+
+======================================================================
+Publications
+URL: https://sites.google.com/udel.edu/dirlab/publications
+
+可跳转到 (常见外链类型):
+- 每条论文可能包含: Paper PDF (通常是 Google Drive 链接)
+- 部分条目包含: Workshop/Conference 官方站点链接 (例如 PDSW)
+- DOI 链接 (部分 Journal 论文直接给 DOI)
+
+页面说明:
+- “Bold names are Ph.D., Master, or Undergraduate Students mentored by Dr. Dong Dai.”
+
+按年份 (页面抓取到的条目 — 以原文为主，尽量保留标题/venue/年份/链接):
+2025
+- [PDSW'25] Jiaxin Dong, Md Hasanur Rashid, Helen Xu, Dong Dai.
+  "RL4Sys: A Lightweight System-driven RL Framework for Drop-in Integration in System Optimization."
+  (PDSW'25) 2025.
+  Venue link: https://www.pdsw.org
+
+2024
+- [TPDS'24] Runzhou Han, Mai Zheng, Suren Byna, Houjun Tang, Bin Dong, Dong Dai, Yong Chen, Dongkyun Kim, Joseph Hassoun, David Thorsley.
+  “PROV-IO: A Cross-Platform Provenance Framework for Scientific Data on HPC Systems.”
+  IEEE Transactions on Parallel and Distributed Systems, vol. 35, no. 5, pp. 844 - 861, May 2024, doi: 10.1109/TPDS.2024.3374555.
+  Paper link (Google Drive): (see page link target)
+
+2023
+- [SC'23] Abdullah Al Raqibul Islam, Dong Dai.
+  “DGAP: Efficient Dynamic Graph Analysis on Persistent Memory.”
+  (SC’23) 2023.
+- [PMBS@SC'23] Elliot Kolker-Hicks, Di Zhang, Dong Dai.
+  “A Reinforcement Learning Based Backfilling Strategy for HPC Batch Jobs.”
+  (PMBS@SC’23) 2023.
+- [IPDPS'23] Di Zhang, Chris Egersdoerfer, Tabassum Mahmud, Mai Zheng, Dong Dai.
+  “Drill: Log-based Anomaly Detection for Large-scale Storage Systems Using Source Code Analysis.”
+  (IPDPS’23) 2023.
+- [IPDPS'23] Saisha Kamat, Abdullah Al Raqibul Islam, Mai Zheng, Dong Dai.
+  “FaultyRank: A Graph-based Parallel File System Checker.”
+  (IPDPS’23) 2023.
+
+2022
+- [FTXS@SC'22] Chris Egersdoerfer, Di Zhang, Dong Dai.
+  “ClusterLog: Clustering Logs for Effective Log-based Anomaly Detection.”
+  (FTXS’22) 2022.
+- [HPDC'22] Di Zhang, Dong Dai, Bing Xie.
+  “SchedInspector: A Batch Job Scheduling Inspector Using Reinforcement Learning.”
+  (HPDC’22) 2022.
+- [CCGRID'22] Abdullah Al Raqibul Islam, Dong Dai, Dazhao Cheng.
+  “VCSR: Mutable CSR Graph Format Using Vertex-Centric Packed Memory Array.”
+  (CCGrid’22) 2022.
+- [THPC'22] Abdullah Al Raqibul Islam, Christopher York, Dong Dai.
+  “A performance study of Optane persistent memory: from storage data structures’ perspective.”
+  CCF Transactions on High Performance Computing, 4, 370–393 (2022).
+  DOI: 10.1007/s42514-022-00123-x
+- [TOS'22] Runzhou Han, Om Rameshwar Gatla, Mai Zheng, Jinrui Cao, Di Zhang, Dong Dai, Yong Chen, Jonathan Cook.
+  “A Study of Failure Recovery and Logging of High-Performance Parallel File Systems.”
+  ACM Transactions on Storage, 18(2), Article 14 (May 2022), 44 pages.
+  DOI: 10.1145/3483447
+
+2021 and earlier (页面标题写作 “2021 and ealier...”)
+- [HotStorage'21] Di Zhang, Dong Dai, Runzhou Han, Mai Zheng.
+  “SentiLog: Anomaly Detecting on Parallel File Systems via Log-based Sentiment Analysis.”
+  (HotStorage’21) 2021. Best Paper Nominee.
+- [TCC'21] Dazhao Cheng, Yu Wang, Dong Dai.
+  “Dynamic Resource Provisioning for Iterative Workloads on Apache Spark.”
+  IEEE Transactions on Cloud Computing. doi: 10.1109/TCC.2021.3108043
+- [JPDC'21] Jiang Zhou, Yong Chen, Dong Dai, Yu Zhuang, Weiping Wang.
+  “I/O characteristic discovery for storage system optimizations.”
+  Journal of Parallel and Distributed Computing, Vol 148, Pages 1-13, 2021.
+  doi: 10.1016/j.jpdc.2020.08.005
+- [SC'20] Di Zhang, Dong Dai, Youbiao He, Forrest Sheng Bao, Bing Xie.
+  “RLScheduler: An Automated HPC Batch Job Scheduler Using Reinforcement Learning.”
+  (SC’20) 2020.
+- [MSST'20] Abdullah Al Raqibul Islam, Anirudh Narayanan, Christopher York, Dong Dai.
+  “A Performance Study of Optane Persistent Memory: From Indexing Data Structures’ Perspective.”
+  (MSST’20) 2020.
+- [MSST'19] Dong Dai, Om Rameshwar Gatla, Mai Zheng.
+  “A Performance Study of Lustre File System Checker: Bottlenecks and Potentials.”
+  (MSST’19) 2019.
+- [TC'19] Jiang Zhou, Yong Chen, Wei Xie, Dong Dai, Shuibing He, Weiping Wang.
+  “PRS: A Pattern-Directed Replication Scheme for Heterogeneous Object-Based Storage.”
+  IEEE Transactions on Computers. doi: 10.1109/TC.2019.2954089
+- [ICS'18] Jinrui Cao, Om Rameshwar Gatla, Mai Zheng, Dong Dai, Vidya Eswarappa, Yan Mu, Yong Chen.
+  “PFault: A General Framework for Analyzing the Reliability of High-Performance Parallel File Systems.”
+  (ICS’18) 2018.
+- [CCGRID'18] Wei Zhang, Dong Dai, Yong Chen.
+  “AKIN: A Streaming Graph Partitioning Algorithm for Distributed Graph Storage Systems.”
+  (CCGrid’18) 2018.
+- [CLOUD'18] Jiang Zhou, Dong Dai, Yu Mao, Xin Chen, Yu Zhuang, Yong Chen.
+  “I/O Characteristics Discovery in Cloud Storage Systems.”
+  (CLOUD’18) 2018.
+- [TPDS'18] Dong Dai, Yong Chen, Philip Carns, John Jenkins, Wei Zhang, Robert Ross.
+  “Managing Rich Metadata in High-Performance Computing Systems Using a Graph Model.”
+  IEEE TPDS. (TPDS’18) 2018.
+- [TCC'18] Dong Dai, Yong Chen, Dries Kimpe, Robert Ross.
+  “Trigger-based Incremental Data Processing with Unified Sync and Async Model.”
+  IEEE TCC. (TCC’18) 2018.
+- [JPDC'18] Dong Dai, Forrest Sheng Bao, Jiang Zhou, Xuanhua Shi, Yong Chen.
+  “Vectorizing Disk Blocks for Efficient Storage Systems via Deep Learning.”
+  ParCo / International Journal of Parallel Computing. (ParCo’18) 2018.
+- [PACT'17] Dong Dai, Yong Chen, Philip Carns, John Jenkins, Robert Ross.
+  “Lightweight Provenance Service for High Performance Computing.”
+  (PACT’17) 2017.
+- [HPDC'17] Dong Dai, Wei Zhang, Yong Chen.
+  “IOGP: An Incremental Online Graph Partitioning Algorithm for Distributed Graph Databases.”
+  (HPDC’17) 2017.
+
+======================================================================
+People
+URL: https://sites.google.com/udel.edu/dirlab/people
+
+可跳转到:
+- Dong Dai profile: https://sites.google.com/udel.edu/dirlab/people/dong-dai
+- Minqiu Sun profile: https://sites.google.com/udel.edu/dirlab/people/minqiu-sun
+- Jiaxin Dong profile: https://sites.google.com/udel.edu/dirlab/people/jiaxin-dong
+
+页面内容 (成员名单 — 页面仅明确列出 Ph.D. Students 与一位 Alumni):
+Faculty
+- Dong Dai (Associate Professor, UD CIS; directs DIRLab)
+
+Ph.D. Students
+- Chris Egersdoerfer
+- Jiaxin Dong
+- Minqiu Sun
+- Abdullah Al Raqibul Islam
+- Md. Hasanur Rashid
+- Saisha Kamat
+- Khondoker Mirazul Mumenin
+- Yuan Liang
+
+Master Students
+- (页面标题存在，但未列出具体姓名)
+
+Undergraduate Students
+- (页面标题存在，但未列出具体姓名)
+
+Alumni
+- Di Zhang
+
+======================================================================
+People → Dong Dai
+URL: https://sites.google.com/udel.edu/dirlab/people/dong-dai
+https://www.linkedin.com/in/dong-dai-9684092a/
+https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en
+https://x.com/daidong
+https://sites.google.com/udel.edu/dirlab/people/dong-dai
+
+可跳转到 (外链):
+- Google Scholar: (页面提供链接)
+- CV (Google Drive): (页面提供链接)
+- 多篇论文 PDF (Google Drive)、Github Repo、Talk/Slides 等 (逐条列出)
+- NSF funding links (逐条列出)
+
+联系方式:
+- Email: dai @ udel
+- Address: Fintech 416B
+- Phone: 302-831-0890
+
+简介 (原文要点):
+- Associate Professor, UD CIS.
+- Research focus: data-intensive & high-performance systems; optimizing/designing intelligent infrastructure for HPC data-intensive systems (parallel file systems, metadata, graph storage, resource management).
+- Directs DIRLab.
+
+Selected Publications (Representative; 原页逐条带 Paper/Github/Talk 等链接):
+2025
+- IOAgent: Democratizing Trustworthy HPC I/O Performance Diagnosis Capability via LLMs (IPDPS 2025)
+- Be Aware of Metadata Corruption in Parallel File System: It Can Be Silent and Catastrophic (IPDPS 2025)
+- AdapTBF: Decentralized Bandwidth Control via Adaptive Token Borrowing for HPC Storage (IPDPS 2025)
+
+2024
+- Understanding and Predicting Cross-Application I/O Interference in HPC Storage Systems (PDSW@SC 2024)
+- QualityNet: Error-bounded Lossy Compression Quality Prediction via Deep Surrogate (BigData 2024)
+- ION: Navigating the HPC I/O Optimization Journey using Large Language Models (HotStorage 2024)
+- An Empirical Study of Machine Learning-based Synthetic Job Trace Generation Methods (JSSPP 2024)
+- Cross-System Analysis of Job Characterization and Scheduling in Large-Scale Computing Clusters (IPDPS 2024)
+
+2023
+- DGAP: Efficient Dynamic Graph Analysis on Persistent Memory (SC 2023)
+- A Reinforcement Learning Based Backfilling Strategy for HPC Batch Jobs (PMBS@SC 2023)
+- Early Exploration of Using ChatGPT for Log-based Anomaly Detection on Parallel File Systems Logs (HPDC Poster 2023)
+- Drill: Log-based Anomaly Detection for Large-scale Storage Systems Using Source Code Analysis (IPDPS 2023)
+- FaultyRank: A Graph-based Parallel File System Checker (IPDPS 2023)
+
+2022
+- VCSR: Mutable CSR Graph Format Using Vertex-Centric Packed Memory Array (CCGRID 2022)
+- SchedInspector: A Batch Job Scheduling Inspector Using Reinforcement Learning (HPDC 2022)
+- A Study of Failure Recovery and Logging of High-Performance Parallel File Systems (TOS 2022)
+
+2021
+- SentiLog: Anomaly Detecting on Parallel File Systems via Log-based Sentiment Analysis (HotStorage 2021, Best Paper Nominee)
+
+2020
+- RLScheduler: An Automated HPC Batch Job Scheduler Using Reinforcement Learning (SC 2020)
+- A Performance Study of Optane Persistent Memory: From Indexing Data Structures’ Perspective (MSST 2020)
+
+(注: Dong Dai 页面每条条目在原网页通常带: Paper PDF, Github Repo, Talk/Slides, 以及一段简短说明。若你在 Cursor 里要自动搬运，可直接抓取这些链接与摘要段落。)
+
+Selected Services (原页列出部分):
+- Program Committee, SC 2024
+- Workshop Committee, SC 2022
+- Poster Committee, SC 2020
+- Program Committee, IPDPS 2024
+- Chair's Special Committee / Best Open-Source Contribution Award Committee, IPDPS 2023
+- Program Committee, CCGRID 2024; CCGRID 2021, 2022
+(Full list in CV)
+
+Teaching (原页列出部分):
+- CISC 361 Operating System, Fall 2024
+- CISC 360 Computer Architecture, Spring 2025
+- ITCS 5145 Parallel Computing, Graduate Course, Fall 2023/2022/2021, Spring 2020/2019
+- ITCS 6050/8050 Machine Learning for Efficient Computing Systems, Spring 2023
+- ITCS 6144/8144 Operating Systems Design, Spring 2019, Fall 2018
+- ITCS 3181 Intro to Comp Architecture, Spring 2022, Fall 2021, Spring 2021, Fall 2020
+- ITSC 3050 Undergraduate Research Initiative, Spring 2023, Fall 2023
+
+Fundings (原页列出 NSF 资助条目及链接; 其中可见):
+- CCF - EAGER: Exploring Automatic Optimization of Multi-tiered HPC Storage Systems via Practical Reinforcement Learning
+- CNS - Moving Machine Learning into the Next-Generation Cloud Flexibly, Agilely and Efficiently
+- CCF - Hybrid NVM based Computing Architecture for Machine Learning Applications
+- CCF - Parallel Graph-Based Paradigm for HPC Parallel File System Checkers
+- OAC - Empowering Data-driven Discovery with a Provenance Collection, Management, and Analysis Software Infrastructure
+
+======================================================================
+People → Minqiu Sun
+URL: https://sites.google.com/udel.edu/dirlab/people/minqiu-sun
+
+联系方式:
+- Email: mqsun@udel.edu
+- Phone: 302-610-9178
+
+简介 (原文要点):
+- PhD student at University of Delaware in DIRLab.
+- Bachelor degrees from Nanjing University of Information Science and Technology (NUIST) and University of Reading (UoR).
+- Page contains a “Publications” section header (具体条目未在抓取文本中展开).
+
+======================================================================
+People → Jiaxin Dong
+URL: https://sites.google.com/udel.edu/dirlab/people/jiaxin-dong
+
+页面内容:
+- 目前页面主体几乎为空，仅可见标题 “Jiaxin Dong” 和一句占位文字: “Let me think think more.....”
+(说明: 若要在新网站上展示完整个人信息，可能需要你本人补充简历/研究方向/项目/论文等。)
+
+======================================================================
+CFP (Call for Papers / Call for Venues)
+URL: https://sites.google.com/udel.edu/dirlab/cfp
+
+页面内容:
+- 标题: “dirlab-Call-For-Papers”
+- “List of All Venues”
+
+Conferences (原页列表):
+- SOSP [CSRankings]
+- OSDI [CSRankings]
+- FAST [CSRankings Second]
+- SIGMOD [CSRankings]
+- SC [CSRankings]
+- HPDC [CSRankings]
+- ICS [CSRankings]
+- IPDPS
+- CLUSTER
+- CCGRID
+- ASPLOS [CSRankings]
+- MSST
+- SOCC
+- SYSTOR
+- PDSW
+- HotStorage
+- SIGMETRICS [CSRankings]
+- NSDI [CSRankings]
+- WWW [CSRankings]
+- PPoPP
+- Eurosys [CSRankings Second]
+- USENIX ATC [CSRankings Second]
+- BIGDATA
+- ICPP
+
+Journals (原页列表):
+- TOS
+- TOC
+- TPDS
+
+======================================================================
+Datasets → Job Traces
+URL: https://sites.google.com/udel.edu/dirlab/datasets/job-traces
+
+页面内容:
+Job Traces
+
+Synthetic Job Traces (JSSPP'24)
+- 指引: “Please refer to this Github Repo for complete data sets and this Paper for how data these data are generated.”
+  - Github Repo: (页面提供 github.com 链接)
+  - Paper: (页面提供 drive.google.com 链接)
+- 数据集链接 (页面逐条列出):
+  - Blue Waters TVAE-15K
+  - Blue Water CTGAN-15K
+  - Theta TVAE-15K
+  - Theta CTGAN-15K
+  - Helios TVAE-15K
+  - Helios CTGAN-15K
+  - Philly TVAE-15K
+  - Philly CTGAN-15K
+
+Real Job Traces
+- TBA
+
+======================================================================
+Gallery → Conferences
+URL: https://sites.google.com/udel.edu/dirlab/gallery/conferences
+
+页面性质:
+- 该页主要为图片/相册入口（“Click for More”），用于展示实验室参加会议的照片。
+
+(提示: 若你要自动搬运到 GitHub.io，新站可以把这些相册做成 Photo Gallery；你可能需要从页面里进一步抓取每个相册的图片 URL。)
+
+======================================================================
+Gallery → Activities
+URL: https://sites.google.com/udel.edu/dirlab/gallery/activities
+
+页面性质:
+- 该页主要为活动照片/相册入口。
+- 可见一个子页面入口:
+  - 12/19 2024: https://sites.google.com/udel.edu/dirlab/gallery/activities/1219-2024
+
+======================================================================
+Gallery → Activities → 12/19 2024
+URL: https://sites.google.com/udel.edu/dirlab/gallery/activities/1219-2024
+
+页面性质:
+- 该页主要为图片/相册内容（文本抓取主要显示导航；图片需另行抓取）。
+
+======================================================================
+URI
+(站内导航路径: URI → 2023-Spring / 2023-Fall / 2024-Spring)
+
+URI → 2023-Spring
+URL: https://sites.google.com/udel.edu/dirlab/uri/2023-spring
+- 页面较长，主要用于发布当期 Undergraduate Research 相关信息与项目列表（含 mentor/项目描述等）。
+- 建议在 Cursor 自动生成新站时，把该页拆成:
+  1) 项目概览（每个项目卡片）
+  2) 申请/参与方式（如有）
+  3) 往届项目归档
+
+URI → 2023-Fall
+URL: https://sites.google.com/udel.edu/dirlab/uri/2023-fall
+- 同上，Fall 版本的 Undergraduate Research 信息归档页。
+
+URI → 2024-Spring
+URL: https://sites.google.com/udel.edu/dirlab/uri/2024-spring
+- 同上，Spring 2024 版本的 Undergraduate Research 信息归档页。
+- （注意：该页面体量较大，若要高质量搬运，建议你在 Cursor 中对该 URL 做逐段抓取/拆分重组。）
+
+======================================================================
+Navigation items present but no standalone extracted page body
+- Projects (menu item shown on all pages)
+- Tools (menu item shown on all pages)
+- Datasets (menu item shown; known child page: Job Traces)
+
+Possible “folder” URLs (may or may not resolve as a text page):
+- https://sites.google.com/udel.edu/dirlab/projects
+- https://sites.google.com/udel.edu/dirlab/tools
+- https://sites.google.com/udel.edu/dirlab/datasets
+
+======================================================================
+END OF FILE

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DIRLab Publications - Research papers in HPC, storage systems, and machine learning published by the Data Intelligence Research Lab.">
+  <title>Publications | DIRLab</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar" id="navbar"></header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">Publications</h1>
+      <p class="page-header__subtitle">
+        Our research published in top venues including SC, IPDPS, HPDC, TPDS, and more.
+        <br><em>Bold names indicate students mentored by Dr. Dong Dai.</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="section">
+    <div class="container">
+      <!-- Search and Filters -->
+      <div class="search-bar">
+        <input type="text" 
+               id="pub-search" 
+               class="search-input" 
+               placeholder="Search by title, author, or venue...">
+        <div class="filter-group">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="conference">Conferences</button>
+          <button class="filter-btn" data-filter="journal">Journals</button>
+          <button class="filter-btn" data-filter="workshop">Workshops</button>
+        </div>
+      </div>
+
+      <!-- Publications List -->
+      <div id="publications-list"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer"></footer>
+
+  <!-- Scripts -->
+  <script src="../data/publications.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Initialize common components
+    initCommon('publications');
+
+    // State
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    // Render publications
+    function renderPublications() {
+      const container = document.getElementById('publications-list');
+      const pubsByYear = getPublicationsByYear();
+      
+      let html = '';
+      
+      pubsByYear.forEach(({ year, publications }) => {
+        // Filter publications
+        let filtered = publications;
+        
+        if (currentFilter !== 'all') {
+          filtered = filtered.filter(p => p.type === currentFilter);
+        }
+        
+        if (searchQuery) {
+          const query = searchQuery.toLowerCase();
+          filtered = filtered.filter(p => 
+            p.title.toLowerCase().includes(query) ||
+            p.authors.toLowerCase().includes(query) ||
+            p.venue.toLowerCase().includes(query)
+          );
+        }
+        
+        if (filtered.length === 0) return;
+        
+        html += `
+          <div class="publication-year">
+            <div class="publication-year__header">
+              <h2 class="publication-year__title">${year}</h2>
+              <span class="publication-year__count">${filtered.length} paper${filtered.length !== 1 ? 's' : ''}</span>
+            </div>
+            <div class="publication-year__list">
+              ${filtered.map(pub => renderPublicationItem(pub)).join('')}
+            </div>
+          </div>
+        `;
+      });
+      
+      if (!html) {
+        html = `
+          <div class="placeholder">
+            <div class="placeholder__icon">📄</div>
+            <p class="placeholder__text">No publications found matching your criteria.</p>
+          </div>
+        `;
+      }
+      
+      container.innerHTML = html;
+    }
+
+    function renderPublicationItem(pub) {
+      const links = [];
+      
+      if (pub.doi) {
+        links.push(`<a href="https://doi.org/${pub.doi}" target="_blank" rel="noopener" class="btn btn--sm btn--outline">DOI</a>`);
+      }
+      if (pub.pdf) {
+        links.push(`<a href="${pub.pdf}" target="_blank" rel="noopener" class="btn btn--sm btn--outline">PDF</a>`);
+      }
+      if (pub.code) {
+        links.push(`<a href="${pub.code}" target="_blank" rel="noopener" class="btn btn--sm btn--outline">Code</a>`);
+      }
+      if (pub.venueUrl) {
+        links.push(`<a href="${pub.venueUrl}" target="_blank" rel="noopener" class="btn btn--sm btn--ghost">Venue</a>`);
+      }
+      
+      const noteHtml = pub.note ? `<span class="tag tag--accent" style="margin-left: var(--space-2);">${pub.note}</span>` : '';
+      
+      return `
+        <article class="publication-item">
+          <div class="publication-item__venue">
+            <span class="publication-item__venue-tag">${pub.venue}</span>
+          </div>
+          <div class="publication-item__content">
+            <h3 class="publication-item__title">${pub.title}${noteHtml}</h3>
+            <p class="publication-item__authors">${formatAuthors(pub.authors)}</p>
+            ${links.length > 0 ? `<div class="publication-item__links">${links.join('')}</div>` : ''}
+          </div>
+        </article>
+      `;
+    }
+
+    // Initialize filters
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        renderPublications();
+      });
+    });
+
+    // Initialize search
+    const searchInput = document.getElementById('pub-search');
+    searchInput.addEventListener('input', debounce((e) => {
+      searchQuery = e.target.value;
+      renderPublications();
+    }, 250));
+
+    // Initial render
+    renderPublications();
+  </script>
+</body>
+</html>
+

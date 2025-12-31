@@ -1,0 +1,234 @@
+DIRLab Website (GitHub Pages) — Final Plan & Spec for Opus 4.5
+Date: 2025-12-31
+Scope: Build a modern, commercial-looking static lab website for DIRLab.
+
+======================================================================
+0) HARD CONSTRAINTS (NON-NEGOTIABLE)
+Source of truth / anti-hallucination:
+- Facts must come ONLY from:
+  - `temp/dirlab_site_dump.txt`
+  - `temp/dirlab-Call-For-Papers - Sheet1.csv`
+- If a field is not present, do NOT invent it. Use explicit placeholders:
+  - "TBD", "Coming soon", "Profile pending", "Figure not available", etc.
+
+Language:
+- English ONLY (no Chinese, no bilingual toggle).
+
+Out-of-scope pages:
+- DO NOT create Projects page (no content).
+- DO NOT create Tools page (no content).
+
+Join Us:
+- No Google Form yet → use a placeholder CTA that does NOT link to a real form.
+
+Gallery:
+- Photos will be added manually later → create placeholder album pages and layout templates now.
+
+CFP:
+- CFP content is maintained manually from CSV. Conference URLs/submission links must NOT be guessed.
+
+======================================================================
+1) TARGET STYLE & UX (COMMERCIAL LOOK)
+Design goals:
+- Modern landing page aesthetics, strong branding, clean typography, generous whitespace.
+- Consistent component system: cards, buttons, tags, hover states, shadows, spacing.
+- Responsive: mobile-first; accessible contrast; keyboard navigable.
+
+Global layout:
+- Sticky top navigation bar on ALL pages.
+- Consistent footer on ALL pages (copyright + minimal links).
+
+======================================================================
+2) INFORMATION ARCHITECTURE (PAGES & ROUTES)
+Required pages:
+- Home: `/index.html`
+- Publications list: `/publications/index.html`
+- Publication detail pages: `/publications/<slug>.html` (modular / template-based)
+- People list: `/people/index.html`
+- Person detail pages: `/people/<slug>.html` (modular / template-based)
+- CFP page: `/cfp/index.html` (table driven by CSV → converted to data)
+- Gallery overview: `/gallery/index.html`
+- Gallery album pages: `/gallery/<album-slug>.html` (placeholder now)
+- About: `/about/index.html` (contact + Join Us placeholder CTA)
+
+Optional (from dump, allowed if content exists):
+- Datasets: `/datasets/index.html` (at least Job Traces content from dump)
+
+Explicitly DO NOT create:
+- `/projects/*`
+- `/tools/*`
+
+Navbar items (fixed order):
+- Home
+- Publications
+- People
+- CFP
+- Gallery
+- Datasets (only if implemented; otherwise omit)
+- About
+
+======================================================================
+3) HOME PAGE (LANDING) — HERO LOGO SCROLL EFFECT
+Hero behavior (must be implemented exactly; do not reinterpret):
+- On first load, hero shows a large DIRLab logo centered, filling most of the viewport.
+- As user scrolls down:
+  - the logo scales down smoothly
+  - navbar becomes solid (if initially transparent)
+  - content sections appear below
+- The small logo version remains visible in the navbar after scrolling.
+
+Home sections (simple overview only; details via links):
+- Mission statement (from dump):
+  - “We develop innovative solutions to enhance the performance and reliability of data-intensive infrastructure”
+- News (at least the June 2025 item from dump)
+- Quick links to:
+  - Publications
+  - People
+  - CFP
+  - Gallery
+  - Datasets (if implemented)
+- "Join Us" CTA → placeholder (no real form link)
+
+======================================================================
+4) PUBLICATIONS (MODULAR / EASY TO UPDATE)
+Goal:
+- Publications list feels like a gallery: cards with year/venue/title/authors and quick links.
+- Clicking a card opens a dedicated detail page for that publication.
+
+Data rules:
+- Build the initial list ONLY from the Publications section of `dirlab_site_dump.txt`.
+- If a publication lacks PDF/DOI/figure/abstract in the source, show placeholders. Do NOT fabricate.
+
+UI requirements:
+- Group by year (collapsible sections).
+- Search by title/authors (client-side).
+- Filter by venue/type (optional; if uncertain, omit rather than guessing types).
+
+Modularity requirement (must be true):
+- Adding a new publication should require:
+  - adding ONE new data entry (preferred) or
+  - adding ONE new publication detail file following the same template.
+- No rewriting the whole publications page for each update.
+
+Publication detail page template must include:
+- Title
+- Authors
+- Venue + Year
+- Links section (PDF/DOI/Venue/Code/Slides/Talk) — only if present; else placeholder
+- Figure area (optional; placeholder if missing)
+- Short description/abstract area:
+  - ONLY if present in sources; else show "TBD"
+
+======================================================================
+5) PEOPLE (BOSS FEATURED + OTHERS MODULAR)
+People list page:
+- Dong Dai (PI) featured at top: large card with photo placeholder + title + research focus + contact.
+- Below: grid of members (PhD students list + Alumni list from dump).
+- Master/Undergraduate sections exist but currently have no names in dump → show section headers with "TBD".
+
+Dong Dai detail page:
+- Must include:
+  - Contact info from dump (email, office, phone)
+  - Research focus text from dump
+  - Selected publications list from dump
+  - Services/Teaching/Funding highlights from dump
+  - Links (ONLY the whitelist links present in dump):
+    - LinkedIn: https://www.linkedin.com/in/dong-dai-9684092a/
+    - Google Scholar: https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en
+    - X: https://x.com/daidong
+    - DIRLab profile: https://sites.google.com/udel.edu/dirlab/people/dong-dai
+
+Other people detail pages:
+- Must be modular templates.
+- If the dump lacks content (e.g., Jiaxin Dong page is mostly empty), show placeholder "Profile pending" and do NOT invent.
+
+======================================================================
+6) CFP (CALL FOR PAPERS / VENUES) — CSV-DRIVEN TABLE
+Data source:
+- Use `temp/dirlab-Call-For-Papers - Sheet1.csv` as the main data.
+- The CFP list in `dirlab_site_dump.txt` is incomplete; use it only as a reference list, not authoritative.
+
+Implementation requirements:
+- Convert CSV to a clean internal representation (JSON or JS object).
+- Maintain a single "URL dictionary" at the top of the CFP script/data file for manual updates.
+- The table must support:
+  - Sorting by due date
+  - Filtering by tier (A/A*/B/C)
+  - Link out to official venue pages ONLY if explicitly provided in the maintained URL dictionary
+
+No guessing policy:
+- If a venue URL is missing, show "TBD" (no fabricated links).
+
+======================================================================
+7) GALLERY — PLACEHOLDER NOW, MANUAL ADD LATER
+Overview page:
+- Shows albums/events as cards (cover image placeholder + title + year).
+- Categories: Conferences / Activities (as per dump).
+
+Album detail page:
+- Fixed template with:
+  - Album title, date/year, location (optional)
+  - Photo grid layout (initially placeholder tiles)
+  - Lightbox viewer hook (can be stubbed)
+
+Manual workflow:
+- Each album page will be manually populated later with images.
+- Do NOT attempt to scrape or invent image URLs.
+
+Optional future improvement (not required now):
+- Dynamic layout based on image aspect ratio/resolution (masonry).
+
+======================================================================
+8) ABOUT PAGE
+Must include:
+- PI contact section (Dong Dai contact from dump)
+- "Join Us Today" CTA:
+  - Placeholder link (no real form)
+  - Simple explanation text (generic, non-factual; must not claim specific hiring info not in dump)
+
+======================================================================
+9) REPO / DIRECTORY CONVENTIONS (STATIC SITE, EASY MAINTENANCE)
+Constraints:
+- Static hosting (GitHub Pages). No backend.
+
+Recommended structure:
+- `/assets/` for images and icons
+- `/styles/` for CSS (or `/assets/css/`)
+- `/scripts/` for JS (or `/assets/js/`)
+- `/data/` for JSON (publications/people/gallery/cfp)
+- `/publications/`, `/people/`, `/gallery/`, `/cfp/`, `/about/`, `/datasets/` for pages
+
+Modularity rule:
+- Publications/People/Gallery detail pages must share one template structure to ensure consistent styling.
+
+======================================================================
+10) ACCEPTANCE CHECKLIST (DONE WHEN ALL TRUE)
+Global:
+- Navbar exists and works on every page; current page is highlighted.
+- English-only content.
+- No Projects/Tools pages exist.
+- No fabricated facts beyond sources; missing info shows placeholders.
+
+Home:
+- Hero logo fills screen and scales down on scroll; navbar transitions correctly.
+- Mission statement and June 2025 news appear.
+
+Publications:
+- Publications listed by year; each opens a detail page.
+- Update process is modular (data entry or one file add).
+
+People:
+- Dong Dai featured; links are exactly the provided whitelist.
+- Other members listed; missing profiles show "Profile pending".
+
+CFP:
+- Table built from CSV; URLs only from manual dictionary; no guessed links.
+
+Gallery:
+- Overview + at least one placeholder album detail page template exists.
+
+About:
+- Contact shown; Join Us placeholder CTA exists.
+
+END.
+
