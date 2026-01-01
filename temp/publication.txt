@@ -1,0 +1,105 @@
+2025
+
+    [PDSW'25] Jiaxin Dong, Md Hasanur Rashid, Helen Xu, Dong Dai. "RL4Sys: A Lightweight System-driven RL Framework for Drop-in Integration in System Optimization." Accepted to appear in the 10th International Parallel Data Systems Workshop (PDSW'25), 2025.
+
+    [PDSW'25] Minqiu Sun, Xin Huang, Luanzheng Guo, Nathan R. Tallent, Kento Sato, Dong Dai. "LLMTailor: A Layer-wise Tailoring Tool for Efficient Checkpointing of Large Language Models." Accepted to appear in the 10th International Parallel Data Systems Workshop (PDSW'25), 2025.
+
+    [SC'25] Chris Egersdoerfer, Philip Carns, Shane Snyder, Robert Ross, Dong Dai. “STELLAR: Storage Tuning Engine Leveraging LLM Autonomous Reasoning for High Performance Parallel File Systems” Accepted to appear in the International Conference for High Performance Computing, Networking, Storage and Analysis (SC’25), 2025. (Acceptance rate: 21.2%, Conference CORE Ranking A).
+
+    [SC'25] Abdullah Al Raqibul Islam, Helen Xu, Dong Dai, Aydin Buluç. “Improving SpGEMM Performance Through Matrix-Reordering and Cluster-wise Computation” Accepted to appear in the International Conference for High Performance Computing, Networking, Storage and Analysis (SC’25), 2025. (Acceptance rate: 21.2%, Conference CORE Ranking A).
+
+    [HPDC'25] Zheng Wei, Jing Xing, Yida Gu, Wenjing Huang, Dong Dai, Guangmin Tan, Dingwen Tao. “TSUE: A Two-Stage Data Update Method for an Erasure Coded Cluster File System” Accepted to appear in the 34th International ACM Symposium on High-Performance Parallel and Distributed Computing (HPDC’25), 2025. (Acceptance rate: 19%, Conference CORE Ranking A).
+
+    [CCGRID'25] Md Hasanur Rashid, Xinyi Li, Youbiao He, Forrest Sheng Bao, Dong Dai. “DIAL: Decentralized I/O AutoTuning via Learned Client-side Local Metrics for Parallel File System” In Proceedings of the 25th IEEE/ACM International Symposium on Cluster, Cloud and Internet Computing (CCGrid’25), 2025. (Acceptance rate: 28%, Conference CORE Ranking A).
+
+    [IPDPS'25] Chris Egersdoerfer, Arnav Sareen, Jean Luca Bez, Suren Byna, Dongkuan (DK) Xu, Dong Dai. “IOAgent: Democratizing Trustworthy HPC I/O Performance Diagnosis Capability via LLMs” Accepted to appear in the 39th IEEE International Parallel & Distributed Processing Symposium (IPDPS’25), 2025. (Conference CORE Ranking A).
+
+    [IPDPS'25] Saisha Kamat, Mai Zheng, Bo Fang, Dong Dai. “Be Aware of Metadata Corruption in Parallel File System: It Can Be Silent and Catastrophic” Accepted to appear in the 39th IEEE International Parallel & Distributed Processing Symposium (IPDPS’25), 2025. (Conference CORE Ranking A).
+
+    [IPDPS'25] Md. Hasanur Rashid, Dong Dai. “AdapTBF: Decentralized Bandwidth Control via Adaptive Token Borrowing for HPC Storage” Accepted to appear in the 39th IEEE International Parallel & Distributed Processing Symposium (IPDPS’25), 2025. (Conference CORE Ranking A).
+
+2024
+
+    [BigData'24] Khondoker Mirazul Mumenin, Dong Dai, Jinzhen Wang, Sheng Di. "QualityNet: Error-bounded Lossy Compression Quality Prediction via Deep Surrogate." Accepted to appear in the IEEE Interna- tional Conference on Big Data (IEEE BigData’24), 2024. (acceptance rate: 18.8%)
+
+    [PDSW'24] Chris Egersdoerfer, Md. Hasanur Rashid, Dong Dai, Bo Fang, Tallent Nathan. "Understanding and Predicting Cross-Application I/O Interference in HPC Storage Systems." Accepted to appear in the 9th International Parallel Data Systems Workshop (PDSW'24), 2024
+
+    [HotStorage'24] Chris Egersdoerfer, Arnav Sareen, Jean Luca Bez, Suren Byna, Dong Dai. “ION: Navigating HPC I/O Optimization Journey using Large Language Models.” In proceedings of the 16th ACM Workshop on Hot Topics in Storage and File Systems (HotStorage’24), 2024.
+
+    [JSSPP@IPDPS'24] Monish Soundar Raj, Thomas MacDougall, Di Zhang, Dong Dai. “An Empirical Study of Machine Learning-based Synthetic Job Trace Generation Methods.” Accepted to appear in the 27th Workshop on Job Scheduling Strategies for Parallel Processing (JSSPP@IPDPS’24).
+
+    [IPDPS'24] Di Zhang, Monish Soundar Raj, Bing Xie, Sheng Di, Dong Dai. “Cross-System Analysis of Job Characterization and Scheduling in Large-Scale Computing Clusters.” Accepted to appear in the 38th IEEE International Parallel & Distributed Processing Symposium (IPDPS’24), 2024. (Conference CORE Ranking A).
+
+    [TPDS'24] Runzhou Han, Mai Zheng, Suren Byna, Houjun Tang, Bin Dong, Dong Dai, Yong Chen, Dongkyun Kim, Joseph Hassoun, David Thorsley. “PROV-IO: A Cross-Platform Provenance Framework for Scientific Data on HPC Systems.” IEEE Transactions on Parallel and Distributed Systems, vol. 35, no. 5, pp. 844 - 861, May 2024, doi: 10.1109/TPDS.2024.3374555. (TPDS’24), 2024. (Journal CORE Ranking A*).
+
+2023
+
+    [SC'23] Abdullah Al Raqibul Islam, Dong Dai. “DGAP: Efficient Dynamic Graph Analysis on Persistent Memory.” Accepted to appear in the International Conference for High Performance Computing, Networking, Storage and Analysis (SC’23), 2023. (Acceptance rate: 23%, Conference CORE Ranking A).
+
+    [PMBS@SC'23] Elliot Kolker-Hicks, Di Zhang, Dong Dai. “A Reinforcement Learning Based Backfilling Strategy for HPC Batch Jobs.” Accepted to appear in the 14th IEEE International Workshop on Performance Modeling, Benchmarking and Simulation of High Performance Computer Systems (PMBS@SC’23), 2023.
+
+    [IPDPS'23] Di Zhang, Chris Egersdoerfer, Tabassum Mahmud, Mai Zheng, Dong Dai. “Drill: Log-based Anomaly Detection for Large-scale Storage Systems Using Source Code Analysis.” In proceedings of the 37th IEEE International Parallel & Distributed Processing Symposium (IPDPS’23), 2023. (Acceptance rate: 26%, Conference CORE Ranking A).
+
+    [IPDPS'23] Saisha Kamat, Abdullah Al Raqibul Islam, Mai Zheng, Dong Dai. “FaultyRank: A Graph-based Parallel File System Checker.” In proceedings of the 37th IEEE International Parallel & Distributed Processing Symposium (IPDPS’23), 2023. (Acceptance rate: 26%, Conference CORE Ranking A).
+
+2022
+
+    [FTXS@SC'22] Chris Egersdoerfer, Di Zhang, Dong Dai. “ClusterLog: Clustering Logs for Effective Log-based Anomaly Detection.” In proceedings of the 2022 IEEE/ACM 12th Workshop on Fault Tolerance for HPC at eXtreme Scale (FTXS’22), 2022.
+
+    [HPDC'22] Di Zhang, Dong Dai, Bing Xie. “SchedInspector: A Batch Job Scheduling Inspector Using Reinforcement Learning.” In proceedings of the 31st International ACM Symposium on High-Performance Parallel and Distributed Computing (HPDC’22), 2022. (Acceptance rate: 19%, Conference CORE Ranking A).
+
+    [CCGRID'22] Abdullah Al Raqibul Islam, Dong Dai, Dazhao Cheng. “VCSR: Mutable CSR Graph Format Using Vertex-Centric Packed Memory Array.” In proceedings of the 22nd IEEE/ACM International Symposium on Cluster, Cloud and Internet Computing (CCGrid’22), 2022. (Acceptance rate: 28%, Conference CORE Ranking A).
+
+    [THPC'22] Abdullah Al Raqibul Islam, Christopher York, Dong Dai. “A performance study of Optane persistent memory: from storage data structures’ perspective.” CCF Transactions on High Performance Computing, 4, 370–393 (2022). https://doi.org/10.1007/s42514-022-00123-x. (THPC’22), 2022.
+
+    [TOS'22] Runzhou Han, Om Rameshwar Gatla, Mai Zheng, Jinrui Cao, Di Zhang, Dong Dai, Yong Chen, Jonathan Cook. “A Study of Failure Recovery and Logging of High-Performance Parallel File Systems.” ACM Transactions on Storage, 18, 2, Article 14 (May 2022), 44 pages. https://doi.org/10.1145/3483447. (TOS’22), 2022. (Journal CORE Ranking B).
+
+2021 and ealier...
+
+    [HotStorage'21] Di Zhang, Dong Dai, Runzhou Han, Mai Zheng. “SentiLog: Anomaly Detecting on Parallel File Systems via Log-based Sentiment Analysis.” In proceedings of the 13th ACM Workshop on Hot Topics in Storage and File Systems (HotStorage’21), 2021. Best Paper Nominee.
+
+    [TCC'21] Dazhao Cheng, Yu Wang, Dong Dai. “Dynamic Resource Provisioning for Iterative Workloads on Apache Spark.” IEEE Transactions on Cloud Computing, vol. 11, no. 1, pp. 639-652, 1 Jan.-March 2023, doi: 10.1109/TCC.2021.3108043. (TCC’21), 2021.
+
+    [JPDC'21] Jiang Zhou, Yong Chen, Dong Dai, Yu Zhuang, Weiping Wang. “I/O characteristic discovery for storage system optimizations.” Journal of Parallel and Distributed Computing, Vol 148, Pages 1-13, 2021, doi: 10.1016/j.jpdc.2020.08.005. (JPDC’21), 2021. (Journal CORE Ranking A).
+
+    [SC'20] Di Zhang, Dong Dai, Youbiao He, Forrest Sheng Bao, and Bing Xie. “RLScheduler: An Automated HPC Batch Job Scheduler Using Reinforcement Learning.” In proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis (SC’20), 2020. (Acceptance rate: 22%, Conference CORE Ranking A).
+
+    [MSST'20] Abdullah Al Raqibul Islam, Anirudh Narayanan, Christopher York, and Dong Dai. “A Performance Study of Optane Persistent Memory: From Indexing Data Structures’ Perspective.” In proceedings of the 36th International Conference on Massive Storage Systems and Technology (MSST’20), 2020. (Acceptance rate: 29%).
+
+    [MSST'19] Dong Dai, Om Rameshwar Gatla, and Mai Zheng. “A Performance Study of Lustre File System Checker: Bottlenecks and Potentials.” In proceedings of the 35th International Conference on Massive Storage Systems and Technology (MSST’19), 2019. (Acceptance rate: 29%).
+
+    [TC'19] Jiang Zhou, Yong Chen, Wei Xie, Dong Dai, Shuibing He, and Weiping Wang. “PRS: A Pattern-Directed Replication Scheme for Heterogeneous Object-Based Storage.” IEEE Transactions on Computers, vol. 69, no. 4, pp. 591-605, 1 April 2020, doi: 10.1109/TC.2019.2954089. (TC’19), 2019. (Journal CORE Ranking A*).
+
+    [ICS'18] Jinrui Cao, Om Rameshwar Gatla, Mai Zheng, Dong Dai, Vidya Eswarappa, Yan Mu, and Yong Chen. “PFault: A General Framework for Analyzing the Reliability of High-Performance Parallel File Systems.” In proceedings of the 32nd ACM/SIGARCH International Conference on Supercomputing (ICS’18), 2018. (Acceptance rate: 19%, Conference CORE Ranking A).
+
+    [CCGRID'18] Wei Zhang, Dong Dai, and Yong Chen. “AKIN: A Streaming Graph Partitioning Algorithm for Distributed Graph Storage Systems.” In proceedings of the 18th IEEE/ACM International Symposium on Cluster, Cloud and Grid Computing (CCGrid’18), 2018. (Acceptance rate: 21%, Conference CORE Ranking A).
+
+    [CLOUD'18] Jiang Zhou, Dong Dai, Yu Mao, Xin Chen, Yu Zhuang, and Yong Chen. “I/O Characteristics Discovery in Cloud Storage Systems.” In proceedings of the 11th International Conference on Cloud Computing (CLOUD’18). (Acceptance rate: 21%, Conference CORE Ranking B).
+
+    [TPDC'18] Dong Dai, Yong Chen, Philip Carns, John Jenkins, Wei Zhang, and Robert Ross. “Managing Rich Metadata in High-Performance Computing Systems Using a Graph Model.” IEEE Transactions on Parallel and Distributed Systems, vol. 30, no. 7, pp. 1613-1627, July 2019, doi: 10.1109/TPDS.2018.2887380. (TPDS’18), 2018. (Journal CORE Ranking A*).
+
+    [TCC'18] Dong Dai, Yong Chen, Dries Kimpe, and Robert Ross. “Trigger-based Incremental Data Processing with Unified Sync and Async Model.” IEEE Transactions on Cloud Computing, vol. 9, no. 1, pp. 372-385, 1 Jan.-March 2021, doi: 10.1109/TCC.2018.2830348. (TCC’18), 2018.
+
+    [JPDC'18] Dong Dai, Forrest Sheng Bao, Jiang Zhou, Xuanhua Shi, and Yong Chen. “Vectorizing Disk Blocks for Efficient Storage Systems via Deep Learning.” International Journal of Parallel Computing, vol. 82, pp. 75-90, doi: 10.1016/j.parco.2018.03.003. (ParCo’18). (Journal CORE Ranking B).
+
+    [PACT'17] Dong Dai, Yong Chen, Philip Carns, John Jenkins, and Robert Ross. “Lightweight Provenance Service for High Performance Computing.” In proceedings of the 26th International Conference on Parallel Architectures and Compilation Techniques (PACT’17). (Acceptance rate: 23%, Conference CORE Ranking B).
+
+    [HPDC'17] Dong Dai, Wei Zhang, and Yong Chen. “IOGP: An Incremental Online Graph Partitioning Algorithm for Distributed Graph Databases.” In proceedings of the 26th ACM International Symposium on High Performance Parallel and Distributed Computing (HPDC’17), 2017. (Acceptance rate: 19%, Conference CORE Ranking A).
+
+    [CCGRID'17] Jiang Zhou, Wei Xie, Dong Dai, and Yong Chen. “Pattern-Directed Replication Scheme for Heterogeneous Object-based Storage.” In proceedings of the 17th IEEE/ACM International Symposium on Cluster, Cloud and Grid Computing (CCGrid’17), 2017. (Acceptance rate: 23%, Conference CORE Ranking A).
+
+    [CLUSTER'16] Dong Dai, Yong Chen, Phil Carns, John Jenkins, Wei Zhang, and Robert Ross. “GraphMeta: A Graph-based Engine for Managing Large-Scale HPC Rich Metadata.” In IEEE International Conference on Cluster Computing (CLUSTER’16), 2016. (Acceptance rate: 24%, Conference CORE Ranking A).
+
+    [PDSW'16] Jinrui Cao, Simeng Wang, Dong Dai, Mai Zheng, and Yong Chen. “A Generic Framework for Testing Parallel File Systems.” In proceedings of the Joint International Workshop on Parallel Data Storage and Data Intensive Scalable Computing Systems held in conjunction with SC’16 (PDSW-DISCS’16), 2016.
+
+    [ICPP'16] Dong Dai, Forrest Sheng Bao, Jiang Zhou, and Yong Chen. “Block2Vec: A Deep Learning Strategy on Mining Block Correlations in Storage Systems.” In proceedings of the 9th International Workshop on Parallel Programming Models and Systems Software for High-End Computing held in conjunction with ICPP’16 (P2S2’16), 2016.
+
+    [ParCo'16] Dong Dai, Phil Carns, Robert Ross, John Jenkins, Nicholas Muirhead, and Yong Chen. “An Asynchronous Traversal Engine for Graph-Based Rich Metadata Management.” International Journal of Parallel Computing, vol. 58, pp. 140-156, 2016, doi: 10.1016/j.parco.2016.06.002. (ParCo’16). (Journal CORE Ranking B).
+
+    [CLUSTER'15] Dong Dai, Phil Carns, Robert Ross, John Jenkins, Kyle Blauer, and Yong Chen. “GraphTrek: Asynchronous Graph Traversal for Property Graph Based Metadata Management.” In IEEE International Conference on Cluster Computing (CLUSTER’15), 2015. (Acceptance rate: 24%, Conference CORE Ranking A).
+
+    [SC'14] Dong Dai, Yong Chen, Dries Kimpe, and Robert Ross. “Two-Choice Randomized Dynamic I/O Scheduler for Object Storage Systems.” In proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis (SC’14), 2014. (Acceptance rate: 21%, Conference CORE Ranking A).
+
+    [BigData'14] Dong Dai, Yong Chen, Dries Kimpe, and Robert Ross. “Provenance-Based Object Storage Prediction Scheme for Scientific Big Data Applications.” In proceedings of the 2014 IEEE International Conference on Big Data (BigData’14), 2014. (Acceptance rate: 19%, Conference CORE Ranking B).
+
+    [PDSW'14] Dong Dai, Robert Ross, Philip Carns, Dries Kimpe, and Yong Chen. “Using Property Graphs for Rich Metadata Management in HPC Systems.” In proceedings of the 9th Parallel Data Storage Workshop held in conjunction with SC’14 (PDSW’14), 2014.

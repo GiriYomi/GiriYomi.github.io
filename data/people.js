@@ -22,7 +22,7 @@ const PEOPLE = {
     email: "dai@udel.edu",
     phone: "302-831-0890",
     office: "Fintech 416B",
-    photo: null, // TBD - set to filename when photo is available
+    photo: "dong-dai.jpg", // Photo in assets/img/people/
     bio: "Dr. Dong Dai is an Associate Professor in the Department of Computer & Information Sciences at the University of Delaware. His research focuses on data-intensive and high-performance systems, specifically optimizing and designing intelligent infrastructure for HPC data-intensive systems including parallel file systems, metadata management, graph storage, and resource management.",
     links: {
       scholar: "https://scholar.google.com/citations?user=wGF_4JsAAAAJ&hl=en",
@@ -76,7 +76,7 @@ const PEOPLE = {
       role: "Ph.D. Student",
       email: "mqsun@udel.edu",
       phone: "302-610-9178",
-      photo: null,
+      photo: "minqiu-sun.jpg",
       bio: "Ph.D. student at University of Delaware in DIRLab. Bachelor degrees from Nanjing University of Information Science and Technology (NUIST) and University of Reading (UoR)."
     },
     {

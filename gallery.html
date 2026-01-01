@@ -7,6 +7,35 @@
   <title>Gallery | DIRLab</title>
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <style>
+    .gallery-card--expanded {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: var(--space-6);
+      align-items: start;
+    }
+    @media (max-width: 640px) {
+      .gallery-card--expanded {
+        grid-template-columns: 1fr;
+      }
+    }
+    .gallery-card__desc {
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      margin: var(--space-2) 0;
+    }
+    .gallery-card__papers {
+      margin: var(--space-4) 0 0 0;
+      padding-left: var(--space-5);
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .gallery-card__papers li {
+      margin-bottom: var(--space-2);
+    }
+  </style>
 </head>
 <body>
   <!-- Navbar -->
@@ -49,7 +78,7 @@
     // Initialize common components
     initCommon('gallery');
 
-    // Render gallery card
+    // Render gallery card with full details
     function renderGalleryCard(album) {
       const coverHtml = album.cover 
         ? `<img src="assets/img/gallery/${album.id}/${album.cover}" alt="${album.title}">`
@@ -58,8 +87,15 @@
       const hasPhotos = album.photos && album.photos.length > 0;
       const photoCount = hasPhotos ? `${album.photos.length} photos` : 'Photos coming soon';
       
+      // Build papers list if available
+      const papersHtml = album.papers && album.papers.length > 0 
+        ? `<ul class="gallery-card__papers">
+            ${album.papers.map(paper => `<li>${paper}</li>`).join('')}
+          </ul>`
+        : '';
+      
       return `
-        <div class="gallery-card">
+        <div class="gallery-card gallery-card--expanded">
           <div class="gallery-card__image">
             ${coverHtml}
           </div>
@@ -70,6 +106,8 @@
               ${album.location ? ` · ${album.location}` : ''}
               <br><span class="text-muted">${photoCount}</span>
             </p>
+            ${album.description ? `<p class="gallery-card__desc">${album.description}</p>` : ''}
+            ${papersHtml}
           </div>
         </div>
       `;

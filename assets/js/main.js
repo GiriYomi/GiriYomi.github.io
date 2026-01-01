@@ -27,7 +27,7 @@ function renderNavbar(currentPage = '') {
   navbar.innerHTML = `
     <div class="navbar__inner">
       <a href="${basePath}index.html" class="navbar__logo">
-        <img src="${basePath}assets/img/dirlab-logo.png" alt="DIRLab" style="height: 45px;">
+        <img src="${basePath}assets/img/dirlab-logo.png" alt="DIRLab" style="height: 56px;">
       </a>
       <nav class="navbar__nav" id="nav-menu">
         ${NAV_ITEMS.map(item => `
@@ -92,8 +92,8 @@ function renderFooter() {
     <div class="container">
       <div class="footer__inner">
         <div class="footer__logos">
-          <img src="${basePath}assets/img/dirlab-logo.png" alt="DIRLab" class="footer__logo-img" style="height: 60px;">
-          <img src="${basePath}assets/img/ud-logo.png" alt="University of Delaware" class="footer__logo-img" style="height: 50px;">
+          <img src="${basePath}assets/img/dirlab-logo-white.jpg" alt="DIRLab" class="footer__logo-img" style="height: 60px; border-radius: 8px;">
+          <img src="${basePath}assets/img/ud-logo.png" alt="University of Delaware" class="footer__logo-img" style="height: 50px; border-radius: 8px;">
         </div>
         <p style="color: rgba(255,255,255,0.7); font-size: var(--text-sm); max-width: 500px;">
           Data Intelligence Research Lab<br>
